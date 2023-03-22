@@ -1,16 +1,15 @@
 
-### 概要
-前端： Javascript
-後端： Python Redis
-Web Server： Nginx
-CICD： Travis (暫定), Docker, Kubernetes (暫定)
-Cloud： GCE (ubuntu)
-<font color=#E10000></font>
-在 GCE 上啟用 Nginx 作為 Web server,
-建立路由分別將服務導向 前端靜態檔 和 後端 Flask api,
-綁定 godaddy domain, 並建立負載平衡 建立 SSL.
+## Tech Stack
+前端： Javascript  
+後端： Python Redis  
+Web Server： Nginx  
+CICD： Travis (暫定), Docker, Kubernetes (暫定)  
+Cloud： GCE (ubuntu)  
+在 GCE 上啟用 Nginx 作為 Web server,  
+建立路由分別將服務導向 前端靜態檔 和 後端 Flask api,  
+綁定 godaddy domain, 並建立負載平衡 建立 SSL
 
-# 注意
+## 注意
 ##### ubuntu
 - ubuntu 環境需先執行 sudo apt update 並安裝相關套件
 - 不同於 apt-get, apt 安裝套件時會先自動更新 apt-get
