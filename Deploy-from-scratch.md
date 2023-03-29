@@ -63,8 +63,14 @@ scp /path/index.html user@vm-ip:/path/to/vm/webserver/directory/
 <br>
 
 #### 後端 api
-後端 api server 設定為 8080, 避開 nginx 80, ssl 443, redis 6379 即可
-將 nginx.conf location /api 指向 8080, flask 中建立一個 /api router
+
+寫一隻 requirements.txt 用來描述及安裝 python 相關套件  
+```
+pip3 install -r requirements.txt
+```
+
+後端 api server 設定為 8080, 避開 nginx 80, ssl 443, redis 6379 即可  
+將 nginx.conf location /api 指向 8080, flask 中建立一個 /api router  
 (透過 sudo vim /etc/nginx/nginx.conf 修改)
 (可以執行 sudo nginx -t 檢查 nginx 修改是否能正常運作)
 (修改完 nginx 需要重啟 ＝> sudo systemctl restart nginx)
@@ -81,6 +87,45 @@ server {
         proxy_pass http://localhost:8080;
     }
 }
+```
+<br>
+
+#### redis
+local 環境需透過 terminal 執行 'redis server' 才能使用 redis 服務,  
+線上環境則會自動啟動 redis server  
+server 啟動後才可以透過 redis-cli 操作 redis  
+
+```
+In redis cli:
+<!-- 查看所有 key -->
+key *
+
+<!-- 刪除某個 key -->
+del key [key-name]
+
+<!-- 查看記憶體狀態 -->
+info memory
+```
+<br>
+
+#### gunicorn
+
+```
+gunicorn -w 1 -b 0.0.0.0:8080 run:app --daemon
+// -w 是 worker 數量， 代表開啟的 process 數量 每一個都代表一個 PID  
+// 一般一個 CUP 可以設置 2-4 個 worker
+// -b 設定服務所要綁定的端口，格式為 HOST:PORT。
+// 最後為執行的程式名稱，run:app 表示要執行名為 run.py 的檔案
+// 加上 --daemon 會完全隱藏執行結果並在背景執行
+
+// 如需關掉 gunicorn 可以先查詢有哪些 process 在執行並記錄下其 PID
+ps -ef | grep gunicorn
+
+// 移除某個 PID
+sudo kill -9 12705
+
+// 移除所有 PID
+pkill gunicorn
 ```
 
 #### [Godaddy DNS設定](https://dcc.godaddy.com/control/dns?domainName={你的域名})
