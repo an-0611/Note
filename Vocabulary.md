@@ -1,1127 +1,1138 @@
-|                英文                 | 詞性 |         中文         |
-| :---------------------------------: | :--: | :------------------: |
-|                 fin                 |  n.  |      尖端 末端       |
-|                hydr                 |  n.  |          水          |
-|                forum                |  n.  |         論壇         |
-|               routine               |  n.  |         常規         |
-|             narrow down             |  v.  |       縮小範圍       |
-|              instantly              | adv. |         即刻         |
-|              panoramic              | adj. |        全景式        |
-|                novel                |  n.  |         小說         |
-|                theme                |  n.  |         主題         |
-| <font color="red">Chapter 12</font> |      |      production      |
-|              assemble               |  v.  |         組裝         |
-|              assembly               |  n.  |      裝配，組合      |
-|               ascribe               |  v.  |        歸因於        |
-|              attribute              |  n.  |         屬性         |
-|               capable               | adj. |       有能力的       |
-|             capability              |  n.  |      能力，才能      |
-|              capacious              | adj. |        寬敞的        |
-|               capably               | adv. |    能幹地，熟練地    |
-|              decision               |  n.  |         決定         |
-|             disassemble             |  v.  |      拆卸，分解      |
-|             efficiency              |  n.  |         效率         |
-|              efficient              | adj. |       有效率的       |
-|            effectiveness            |  n.  |        有效性        |
-|            incapability             |  n.  |      無能，無力      |
-|              innovate               |  v.  |      革新，創新      |
-|             limitation              |  n.  |         限制         |
-|            manufacturing            |  n.  |         製造         |
-|              material               |  n.  |         材料         |
-|              placement              |  n.  |      安置，放置      |
-|              renovate               |  v.  |      翻新，修復      |
-|              substance              |  n.  |         物質         |
-|               tailor                |  v.  |    裁縫，量身定做    |
-|              tailored               | adj. |      量身定做的      |
-|               utilize               |  v.  |      利用，使用      |
-|              equipment              |  n.  |         設備         |
-|                equip                |  v.  |         裝備         |
-|              automate               |  v.  |        自動化        |
-|              capacity               |  n.  |         容量         |
-|            specification            |  n.  |         規格         |
-|               specify               |  v.  |       具體說明       |
-|               manual                |  n.  |       使用手冊       |
-|             processing              |  n.  |         處理         |
-|              properly               | adv. |        正確地        |
-|               safety                |  n.  |         安全         |
-|             precaution              |  n.  |       預防措施       |
-|              economize              |  v.  |         節約         |
-|              flexible               | adj. |       有彈性的       |
-|             flexibility             |  n.  |         彈性         |
-|             comparable              | adj. |       可比較的       |
-|             comparison              |  n.  |         比較         |
-|            incomparable             | adj. |      無法比較的      |
-|               produce               |  v.  |         生產         |
-|              turn out               |  v.  |         製造         |
-|            productivity             |  n.  |        生產力        |
-|             production              |  n.  |         生產         |
-|            respectively             | adv. |        分別地        |
-|               device                |  n.  |         裝置         |
-|               devise                |  v.  |         設計         |
-|               gadget                |  n.  |        小器具        |
-|                trim                 |  v.  |         整理         |
-|               launch                |  v.  |         推出         |
-|             separately              | adv. |        分開地        |
-|             separation              |  n.  |         分離         |
-|            individually             | adv. |        單獨地        |
-|             expiration              |  n.  |         過期         |
-|              maneuver               |  n.  |         操作         |
-|              upcoming               | adj. |      即將到來的      |
-|              upcoming               | adj. |      即將到來的      |
-|               damaged               | adj. |        損壞的        |
-|          hearing impaired           | adj. |      聽覺障礙的      |
-|             prevention              |  n.  |         預防         |
-|             preventive              | adj. |       預防性的       |
-|               empower               |  v.  |         授權         |
-|             electricity             |  n.  |         電力         |
-|            power supply             |  n.  |         電源         |
-|              chemical               | adj. |        化學的        |
-|               chemist               |  n.  |        化學家        |
-|              chemistry              |  n.  |         化學         |
-| <font color="red">Chapter 13</font> |      |   customer service   |
-|              complaint              |  n.  |         抱怨         |
-|               grumble               |  n.  |      怨言，牢騷      |
-|               praise                |  n.  |      讚揚，稱讚      |
-|             compliment              |  n.  |      讚美，恭維      |
-|              argument               |  n.  |      爭論，辯論      |
-|            argumentative            | adj. |   好辯的，好爭論的   |
-|                argue                |  v.  |      爭論，辯論      |
-|              arguably               | adv. | 可以說是，有理由認為 |
-|              suitably               | adv. |        適當地        |
-|             appropriate             | adj. |    適當的，恰當的    |
-|            appropriately            | adv. |        適當地        |
-|           inappropriately           | adv. |       不適當地       |
-|              infuriate              |  v.  |     激怒，使生氣     |
-|             infuriating             | adj. |      令人憤怒的      |
-|              courteous              | adj. |   禮貌的，有禮貌的   |
-|              courtesy               |  n.  |      禮貌，殷勤      |
-|             courteously             | adv. |       有禮貌地       |
-|            satisfaction             |  n.  |      滿意，滿足      |
-|           dissatisfaction           |  n.  |     不滿，不滿意     |
-|               satisfy               |  v.  |     使滿意，滿足     |
-|            inconvenience            |  n.  |      不便，麻煩      |
-|              complete               | adj. |    完整的，完全的    |
-|             completely              | adv. |    完全地，徹底地    |
-|             completion              |  n.  |      完成，完成      |
-|            imcompletion             |  n.  |    未完成，未完全    |
-|              specific               | adj. |    具體的，明確的    |
-|               replace               |  v.  |      取代，替換      |
-|             substitute              |  n.  |    代替物，替代者    |
-|            presentation             |  n.  |      介紹，演講      |
-|             evaluation              |  n.  |      評價，評估      |
-|              evaluator              |  n.  |    評估人，評價者    |
-|              evaluate               |  v.  |      評估，評價      |
-|              confident              | adj. |        自信的        |
-|             commentary              |  n.  |         評論         |
-|             commentate              |  v.  |       撰寫評論       |
-|            notification             |  n.  |         通知         |
-|            apologize for            | phr. |      為...道歉       |
-|            apologize to             | phr. |      向...道歉       |
-|              interact               |  v.  |         互動         |
-|              interrupt              |  v.  |         打斷         |
-|               certain               | adj. |        確定的        |
-|            commitment to            | phr. |      致力於...       |
-|               commit                |  v.  |         承諾         |
-|              committed              | adj. |        忠誠的        |
-|               devoted               | adj. |        獻身的        |
-|             dedication              |  n.  |         奉獻         |
-|               applaud               |  v.  |      為...喝彩       |
-|              biography              |  n.  |         傳記         |
-|              critical               | adj. |        批評的        |
-|              important              | adj. |        重要的        |
-|              criticize              |  v.  |         批評         |
-|               critic                |  n.  |        評論家        |
-|              critique               |  n.  |         批評         |
-|             critically              | adv. |       批判性地       |
-|              depend on              | phr. |         依賴         |
-|              dependent              | adj. |        依賴的        |
-|             dependable              | adj. |        可靠的        |
-|               combine               |  v.  |         結合         |
-|             combination             |  n.  |         結合         |
-|              priority               |  n.  |       優先順序       |
-|                prior                | adj. |        先前的        |
-|             prioritize              |  v.  |      分優先次序      |
-|         observe regulations         | phr. |       遵守法規       |
-|         observe guidelines          | phr. |     遵守指導方針     |
-|              defective              | adj. |       有缺陷的       |
-|               reflect               |  v.  |         反映         |
-|              indicate               |  v.  |         指出         |
-|              consider               |  v.  |         考慮         |
-|              attitude               |  n.  |         態度         |
-
-disappoint
-inquire
-inquiry
-reply
-disclose
-disclosure
-reveal
-expose
-conceal
-guatantee
-assure
-politely
-polite
-politeness
-impolitely
-seriously
-Chapter 14 travel abroad
-international
-demestic
-attraction
-attract
-attractive
-itinerary
-exotic
-diverse
-diversity
-varied
-superb
-superbly
-outstanding
-baggage
-luggage
-destination
-destine
-locate
-approximately
-duty
-tax
-process
-board
-comfort
-declare
-specify
-specific
-depart
-departure
-take off
-emergency
-outgoing
-tightly
-tourist
-carrier
-customarily
-customary
-custom
-customs
-confuse
-arrive
-arrival
-brochure
-Chapter 15 contract negotiation
-proposal
-propose
-proposition
-alliance
-ally
-union
-coalition
-stipulation
-stipulate
-term
-compromise
-compromising
-deal
-negotiation
-negotiate
-negotiator
-negotiable
-agreement
-disagreement
-deadlock
-contract
-contractor
-contraction
-retain
-signature
-originally
-primarily
-direction
-course
-initially
-initiate
-expire
-expiration
-expiry
-collaborate
-collaboration
-collaborative
-dedicate
-commit
-revise
-imperative
-essential
-compulsory
-cooperatively
-commission
-fee
-omit
-omission
-conflict
-renew
-renewal
-renewable
-refresh
-proficient
-adept
-adopt
-adapt
-confidentiality
-dispute
-objection
-define
-impression
-security
-option
-optionally
-proceed with
-process
-procedure
-proceeds
-progress
-modify
-modification
-alter
-narrow
-expand
-bid
-outbid
-settle
-settlement
-terminate
-termination
-terminal
-initiate
-conclusion
-foundation
-found
-founder
-fundraising
-Chapter 16 Business
-completely
-complete
-completion
-totally
-partially
-refuse
-refusal
-turn down
-approve
-temporarily
-temporary
-permanently
-dealer
-deal
-dealership
-bulk
-inventory
-stock
-shortage
-deficiency
-shorten
-shortly
-wide selection
-commercial
-provision
-contact
-get in touch with
-invoice
-move
-transfer
-supply
-supplier
-provide
-furnish
-distribute
-distribution
-distributor
-acquisition
-assure
-assurance
-convince
-promise
-subject
-seek
-satisfactory
-satisfy
-satisfaction
-unsatisfaction
-satisfying
-satisfied
-satisfactorily
-confirmation
-unable
-payment
-measure
-bargain
-deal
-stock, in stock, out of stock
-inventory
-supplies
-affordability
-affordable
-clientele
-acclaim
-acclaimed
-praise
-represent
-representation
-representative
-rating
-encompass
-finalize
-retail
-retailer
-wholesaler
-wholesale
-commodity
-quote
-estimate
-consignment
-consign
-Chapter 17 trading, freight
-fragile
-perishable
-perish
-perishing
-imperishalble
-deliver
-delivery
-ensure
-assure
-make certain
-figure out
-courier
-carton
-shipment
-particularly
-adequately
-adequate
-properly
-appropriately
-inadequately
-article
-efficient
-efficiency
-efficiently
-effective
-inefficient
-agency
-enclose
-enclosure
-pick up
-attach
-attached
-attachment
-affix
-detach
-formerly
-convenience
-inconvenience
-acknowledge
-acknowledgement
-with caution
-cautious
-carelessness
-correspondence
-correspond
-correspondent
-separate
-separately
-separation
-remarkable
-remarkably
-handle
-take care of
-warehouse
-impose
-imposition
-levy
-envelope
-envelop
-exclusion
-exclude
-exclusive
-exclusively
-recipient
-sender
-incorrect
-incorrectly
-inaccurate
-oblige
-obligation
-obligatory
-Chapter 18 住宿 餐廳
-check in
-checkout
-compensate
-compensation
-compensatory
-complimentary
-free
-chef
-elegant
-elegance
-flavor
-accommodate
-accommodation
-lodge
-reception
-receive
-receptionist
-in advance
-refreshments
-make
-cater
-reservation
-reserve
-booking
-beverage
-confirm a reservation
-confirmation
-confirmative
-verify
-cancel
-rate
-fee
-decorate
-decorative
-information
-inform
-retain // we will retain your sites for 10 minutes, please make sure you can coming in this time that you reservation.
-retention
-maintain
-atmosphere
-mood
-vibe
-cuisine
-sequence
-extensive
-extension
-extensively
-comprehensive
-diverse
-divesity
-prior
-priority
-amenity
-belongings
-entire
-entirely was
-definitely was
-ease // eased the temperature
-material // 原始材料
-ingredient // 人工配料的成分
-sip
-stir
-complicate
-complication
-freshness
-occupy
-occupancy
-occupant
-occupation
-Chapter 19 獎金 收益
-decline
-decrease
-reduction
-reject
-markedly
-marked
-obviously
-increase
-increasing
-incresingly
-decrease
-revenue
-income
-earnings
-expenditure
-projection
-project
-estimate
-substantial
-substantially
-considerable
-anticipate
-anticipation
-expect
-significantly
-significant
-significance
-shift
-fee
-rate
-production
-produce
-consumption
-impressive
-impressed
-impression
-impress
-impressively
-representative
-represent
-recent
-exceed
-excess
-excessive
-exceedingly
-surpass
-fall short of
-improvement
-employer
-regular
-regularly
-inregular
-summarize
-summary
-typically
-basically
-whole
-growth
-growing
-figure
-steady
-frequent
-frequence
-achieve
-achievement
-achiver
-reach
-assumption
-encourage
-discouraging
-incur
-incurrence
-slightly
-slight
-profit
-profitable
-lucrative
-profitability
-reliant
-reliance
-rely
-illustrate
-illustration
-illustrator
-accurate
-inaccurate
-percentage
-reduce
-reduction
-reductive
-diminish
-decrease
-tend
-tendency
-Chapter 20 會計 節省經費
-audit
-auditor
-accounting
-budget
-financial
-finance
-financing
-curtail
-curtailment
-reduce
-deficit
-shortfall
-surplus
-recently
-lately
-substantially
-substantial
-substance
-significantly
-considerably
-committee
-frequently
-capability
-proceeds
-reimbruse
-reimbursement for
-adequate
-adequacy
-adequately
-total
-totally
-allocate
-allocation
-assign
-inspector
-preferred
-prefer
-preference
-quarter
-quarterly
-interrupt
-browse
-prompt
-deduct
-deduction
-measurement
-shorten
-amend
-amendment
-amendable
-revise
-modify
-calculate
-calculation
-exempt
-exemption
-deficient
-deficiency
-sufficient
-compare
-comparison
-comparable
-fortunate
-fortunately
-expenditure
-expend
-expense
-income
-accurately
-accurate
-inaccurately
-worth
-worthy
-worthwhile
-in excess of funds
-exceed
-excessive
-excesively
-shortage
-fiscal
-incidental
-incident
-incidentally
-inflation
-inflate
-inflationary
-liable
-be liable for = be responsible for
-liability
-be liable to do = be likely to do
-turnover
-Chapter 21 辦公室氣氛
-announce
-announcement
-interested in
-activation
-acceptable
-acceptance
-accepting
-acceptably
-foresee
-foreseeable
-unforeseen
-predict
-expansion
-expand
-expansive
-relocate
-relocation
-competitor
-asset
-contribute
-contribution
-contributor
-be dedicate to
-committed
-devoted
-dedication
-misplace
-considerable
-consideration
-last
-emerge
-emergence
-emergent
-nominate
-merger
-amalgamate
-imply
-vital
-necessary
-vitally
-persist
-persistent
-persistence
-imdependent
-dependent
-force
-establish
-establishment
-established
-initiate
-initial
-enhance
-enhancement
-reinforce
-strengthen
-remowned
-imformed decision
-minutes
-waive
-reach
-reachable
-achieve
-authority
-revoke
-transaction
-acquire
-property
-district
-surpass
-surpassingly
-imporbable
-edge
-advantage
-border
-simultaneously
-attemp
-reveal
-productivity
-productive
-certain
-certainly
-uncertain
-permier
-authorize
-Chapter 22 會議
-agenda
-convene
-refute
-coordination
-unanimous
-convince
-convincing
-convinced
-general consensus
-defer
-postpone
-usual
-reschedule
-conference
-meeting
-determine
-determination
-determined
-reportable
-reportedly
-comment
-phase
-approve
-enclosed
-suggestion
-attention
-attentive
-attentively
-object (object to V-ing)
-objection
-objective
-coincidentally
-crowded
-undergo
-outcome
-consequence
-narrowly
-differ
-discuss
-discussion
-breif
-breifly
-distract
-distraction
-emphasis
-emphasize
-emphatic
-press
-organize
-organization
-organizer
-mention
-presuasive
-presuade
-presuasion
-presuasively
-unconvincing
-understanding
-understandable
-adjourn
-constructive
-construct
-construction
-constructively
-destructive
-preside
-president
-presidency
-irrelevant
-relevant
-constraint
-inhibition
-Chapter 23 員工福利
-convention
-annual
-annual growth rate
-annual conference
-annual safety inspection
-biannual
-biennial
-purpose
-proposal
-purposely
-aim
-enroll, register, sign up
-enrollment
-lecture
-lecturer
-participant
-participate in
-participation
-attend
-attendance
-attendee
-attendant
-encourage, promote
-leave, absence
-recommendation
-conference
-schedule
-include
-inclusion
-inclusive
-contain
-exclude
-register
-registration, enrollment
-enroll in
-requirement
-required
-call for
-entail
-grateful
-overtime
-responsibility
-responsible
-assert 斷言
-assent 同意
-asset 資產
-regard A as B
-regarding
-tentative
-tentatively
-temporary
-indefinite
-functionality
-commence, begin
-commencement
-objective, purpose
-objection
-objectivity
-reimbursement
-reimburse
-treatment
-in honor of
-emphasize
-emphasis
-entry
-earn
-earning
-problem arise
-labor
-union
-exist
-existing
-existence
-exploit
-exploitation
-Chapter 24 人事異動
-appoint
-appraisal
-appraise
-assessment
-evaluation
-evaluate
-promote
-promotion
-promotional
-demote
-be skilled at
-radically
-expectional
-expectionally
-remarkable
-appreciation
-appreciate
-preference, what is your meal preference, noodle or rice ?
-management
-predict
-transfer
-award
-mandatory
-competent
-performance
-preform
-preformer
-execution
-early
-designate
-executive
-dedication
-unanimously
-progress
-progressive
-congratulate
-congratulation
-dismiss
-unanimously
-dismissal
-independence
-participation
-participate
-participant
-involvement
-praise
-compliment
-accomplishment
-deliberation
-leadership
-scholarship
-deliberation
-leadership
-retire
-retirement
-nomination
-nominate
-nominee
-appointment
-reorganize
-reorganization
-serve, act
-service
-encouragement
-encourage
-encouraging
-resignation
-resign, step down
-strictly
-strict
-serverely, sternly
-Chapter 25 交通
-congestion
-congest
-traffic jam
-alleviate
-alleviation
-ease
-exacerbate
-divert
-detour
-fuel
-malfunction
-permit
-permission
-permissive
-permissibly
-allow
-forbid
-prohibit
-transportation
-transport
-opportunity to
-clearly
-evidently
-obviously
-ongoing
-detailed
-alternative
-alternatively adv. 不然的話 || 兩者擇一地
-alternate
-alternation
-obtain secure
-obtainable
-designated
-designate
-designation
-appointed
-intersection
-equip
-commute
-commuter
-downtown
-automotive
-closure
-vehicle
-platform
-official
-officially
-formal
-transit
-fare
-expense
-expenditure
-trust
-trustful
-trustworthy
-fine
-penalty
-forfeit
-passage
-passenger
-prominently
-average
-reserve
-reservation
-collision
-tow
-reverse
-obstruct
-
-Chapter 26 bank
-delinquent
-delinquency
-delinquently
-overdue
-outstanding
-regrettably
-regrettable
-regretfully
-balance
-deposit
-withdrawal
-previously
-previous
-due to
-receice
-receipt
-reception
-expectation
-expectedly
-anticipate yeah, that is in my anticipate
-certificate
-certification
-certify how do you certify your solution is correct
-certified
-documentary
-documentation
-spending
-successfully
-succeed
-resident
-pleasure
-summary
-summarize
-
-Chapter 29 weather forecast
-preserve
-how do I preserve this food when I take an airplane?
-
-Chaoter 30
+|                英文                 |     詞性     |               中文               |
+| :---------------------------------: | :----------: | :------------------------------: | ------------------------------------------------------------------------------------------------------------ |
+|                 fin                 |      n.      |            尖端 末端             |
+|                hydr                 |      n.      |                水                |
+|                forum                |      n.      |               論壇               |
+|               routine               |      n.      |               常規               |
+|             narrow down             |      v.      |             縮小範圍             |
+|              instantly              |     adv.     |               即刻               |
+|              panoramic              |     adj.     |              全景式              |
+|                novel                |      n.      |               小說               |
+|                theme                |      n.      |               主題               |
+| <font color="red">Chapter 12</font> |              |            production            |
+|              assemble               |      v.      |               組裝               |
+|              assembly               |      n.      |            裝配，組合            |
+|               ascribe               |      v.      |              歸因於              |
+|              attribute              |      n.      |               屬性               |
+|               capable               |     adj.     |             有能力的             |
+|             capability              |      n.      |            能力，才能            |
+|              capacious              |     adj.     |              寬敞的              |
+|               capably               |     adv.     |          能幹地，熟練地          |
+|              decision               |      n.      |               決定               |
+|             disassemble             |      v.      |            拆卸，分解            |
+|             efficiency              |      n.      |               效率               |
+|              efficient              |     adj.     |             有效率的             |
+|            effectiveness            |      n.      |              有效性              |
+|            incapability             |      n.      |            無能，無力            |
+|              innovate               |      v.      |            革新，創新            |
+|             limitation              |      n.      |               限制               |
+|            manufacturing            |      n.      |               製造               |
+|              material               |      n.      |               材料               |
+|              placement              |      n.      |            安置，放置            |
+|              renovate               |      v.      |            翻新，修復            |
+|              substance              |      n.      |               物質               |
+|               tailor                |      v.      |          裁縫，量身定做          |
+|              tailored               |     adj.     |            量身定做的            |
+|               utilize               |      v.      |            利用，使用            |
+|              equipment              |      n.      |               設備               |
+|                equip                |      v.      |               裝備               |
+|              automate               |      v.      |              自動化              |
+|              capacity               |      n.      |               容量               |
+|            specification            |      n.      |               規格               |
+|               specify               |      v.      |             具體說明             |
+|               manual                |      n.      |             使用手冊             |
+|             processing              |      n.      |               處理               |
+|              properly               |     adv.     |              正確地              |
+|               safety                |      n.      |               安全               |
+|             precaution              |      n.      |             預防措施             |
+|              economize              |      v.      |               節約               |
+|              flexible               |     adj.     |             有彈性的             |
+|             flexibility             |      n.      |               彈性               |
+|             comparable              |     adj.     |             可比較的             |
+|             comparison              |      n.      |               比較               |
+|            incomparable             |     adj.     |            無法比較的            |
+|               produce               |      v.      |               生產               |
+|              turn out               |      v.      |               製造               |
+|            productivity             |      n.      |              生產力              |
+|             production              |      n.      |               生產               |
+|            respectively             |     adv.     |              分別地              |
+|               device                |      n.      |               裝置               |
+|               devise                |      v.      |               設計               |
+|               gadget                |      n.      |              小器具              |
+|                trim                 |      v.      |               整理               |
+|               launch                |      v.      |               推出               |
+|             separately              |     adv.     |              分開地              |
+|             separation              |      n.      |               分離               |
+|            individually             |     adv.     |              單獨地              |
+|             expiration              |      n.      |               過期               |
+|              maneuver               |      n.      |               操作               |
+|              upcoming               |     adj.     |            即將到來的            |
+|              upcoming               |     adj.     |            即將到來的            |
+|               damaged               |     adj.     |              損壞的              |
+|          hearing impaired           |     adj.     |            聽覺障礙的            |
+|             prevention              |      n.      |               預防               |
+|             preventive              |     adj.     |             預防性的             |
+|               empower               |      v.      |               授權               |
+|             electricity             |      n.      |               電力               |
+|            power supply             |      n.      |               電源               |
+|              chemical               |     adj.     |              化學的              |
+|               chemist               |      n.      |              化學家              |
+|              chemistry              |      n.      |               化學               |
+| <font color="red">Chapter 13</font> |              |         customer service         |
+|              complaint              |      n.      |               抱怨               |
+|               grumble               |      n.      |            怨言，牢騷            |
+|               praise                |      n.      |            讚揚，稱讚            |
+|             compliment              |      n.      |            讚美，恭維            |
+|              argument               |      n.      |            爭論，辯論            |
+|            argumentative            |     adj.     |         好辯的，好爭論的         |
+|                argue                |      v.      |            爭論，辯論            |
+|              arguably               |     adv.     |       可以說是，有理由認為       |
+|              suitably               |     adv.     |              適當地              |
+|             appropriate             |     adj.     |          適當的，恰當的          |
+|            appropriately            |     adv.     |              適當地              |
+|           inappropriately           |     adv.     |             不適當地             |
+|              infuriate              |      v.      |           激怒，使生氣           |
+|             infuriating             |     adj.     |            令人憤怒的            |
+|              courteous              |     adj.     |         禮貌的，有禮貌的         |
+|              courtesy               |      n.      |            禮貌，殷勤            |
+|             courteously             |     adv.     |             有禮貌地             |
+|            satisfaction             |      n.      |            滿意，滿足            |
+|           dissatisfaction           |      n.      |           不滿，不滿意           |
+|               satisfy               |      v.      |           使滿意，滿足           |
+|            inconvenience            |      n.      |            不便，麻煩            |
+|              complete               |     adj.     |          完整的，完全的          |
+|             completely              |     adv.     |          完全地，徹底地          |
+|             completion              |      n.      |            完成，完成            |
+|            imcompletion             |      n.      |          未完成，未完全          |
+|              specific               |     adj.     |          具體的，明確的          |
+|               replace               |      v.      |            取代，替換            |
+|             substitute              |      n.      |          代替物，替代者          |
+|            presentation             |      n.      |            介紹，演講            |
+|             evaluation              |      n.      |            評價，評估            |
+|              evaluator              |      n.      |          評估人，評價者          |
+|              evaluate               |      v.      |            評估，評價            |
+|              confident              |     adj.     |              自信的              |
+|             commentary              |      n.      |               評論               |
+|             commentate              |      v.      |             撰寫評論             |
+|            notification             |      n.      |               通知               |
+|            apologize for            |     phr.     |            為...道歉             |
+|            apologize to             |     phr.     |            向...道歉             |
+|              interact               |      v.      |               互動               |
+|              interrupt              |      v.      |               打斷               |
+|               certain               |     adj.     |              確定的              |
+|            commitment to            |     phr.     |            致力於...             |
+|               commit                |      v.      |               承諾               |
+|              committed              |     adj.     |              忠誠的              |
+|               devoted               |     adj.     |              獻身的              |
+|             dedication              |      n.      |               奉獻               |
+|               applaud               |      v.      |            為...喝彩             |
+|              biography              |      n.      |               傳記               |
+|              critical               |     adj.     |              批評的              |
+|              important              |     adj.     |              重要的              |
+|              criticize              |      v.      |               批評               |
+|               critic                |      n.      |              評論家              |
+|              critique               |      n.      |               批評               |
+|             critically              |     adv.     |             批判性地             |
+|              depend on              |     phr.     |               依賴               |
+|              dependent              |     adj.     |              依賴的              |
+|             dependable              |     adj.     |              可靠的              |
+|               combine               |      v.      |               結合               |
+|             combination             |      n.      |               結合               |
+|              priority               |      n.      |             優先順序             |
+|                prior                |     adj.     |              先前的              |
+|             prioritize              |      v.      |            分優先次序            |
+|         observe regulations         |     phr.     |             遵守法規             |
+|         observe guidelines          |     phr.     |           遵守指導方針           |
+|              defective              |     adj.     |             有缺陷的             |
+|               reflect               |      v.      |               反映               |
+|              indicate               |      v.      |               指出               |
+|              consider               |      v.      |               考慮               |
+|              attitude               |      n.      |               態度               |
+|             disappoint              |      v.      |              使失望              |
+|               inquire               |      v.      |               詢問               |
+|               inquiry               |      n.      |               查詢               |
+|                reply                |    v./n.     |               回覆               |
+|              disclose               |      v.      |               揭露               |
+|             disclosure              |      n.      |               揭露               |
+|               reveal                |      v.      |               揭示               |
+|               expose                |      v.      |               揭露               |
+|               conceal               |      v.      |               隱藏               |
+|              guarantee              |    v./n.     |               保證               |
+|               assure                |      v.      |               保證               |
+|              politely               |     adv.     |             有禮貌地             |
+|               polite                |     adj.     |             有禮貌的             |
+|             politeness              |      n.      |               禮貌               |
+|             impolitely              |     adv.     |             不禮貌地             |
+|              seriously              |     adv.     |              認真地              |
+| <font color="red">Chapter 14</font> |              |          travel abroad           |
+|            international            |     adj.     |              國際的              |
+|              domestic               |     adj.     |              國內的              |
+|             attraction              |      n.      |              吸引力              |
+|               attract               |      v.      |               吸引               |
+|             attractive              |     adj.     |            有吸引力的            |
+|              itinerary              |      n.      |               行程               |
+|               exotic                |     adj.     |            異國風情的            |
+|               diverse               |     adj.     |              多樣的              |
+|              diversity              |      n.      |              多樣性              |
+|               varied                |     adj.     |            各式各樣的            |
+|               superb                |     adj.     |              極好的              |
+|              superbly               |     adv.     |              極好地              |
+|             outstanding             |     adj.     |              傑出的              |
+|               baggage               |      n.      |               行李               |
+|               luggage               |      n.      |               行李               |
+|             destination             |      n.      |              目的地              |
+|               destine               |      v.      |               指定               |
+|               locate                |      v.      |               定位               |
+|            approximately            |     adv.     |               大約               |
+|                duty                 |      n.      |               關稅               |
+|                 tax                 |      n.      |                稅                |
+|               process               |    v./n.     |            處理；過程            |
+|                board                |    v./n.     |           登機；委員會           |
+|               comfort               |      n.      |               舒適               |
+|               declare               |      v.      |            宣稱；申報            |
+|               specify               |      v.      |             具體指出             |
+|              specific               |     adj.     |              具體的              |
+|               depart                |      v.      |               出發               |
+|              departure              |      n.      |            出發；離開            |
+|              take off               |      v.      |               起飛               |
+|              emergency              |      n.      |             緊急情況             |
+|              outgoing               |     adj.     |              外向的              |
+|               tightly               |     adv.     |              緊緊地              |
+|               tourist               |      n.      |              旅遊者              |
+|               carrier               |      n.      |              承運人              |
+|             customarily             |     adv.     |              習慣上              |
+|              customary              |     adj.     |              習慣的              |
+|               custom                |      n.      |               習俗               |
+|               customs               |      n.      |               海關               |
+|               confuse               |      v.      |              使困惑              |
+|               arrive                |      v.      |               到達               |
+|               arrival               |      n.      |               到達               |
+|              brochure               |      n.      |              小冊子              |
+| <font color="red">Chapter 15</font> |              |       contract negotiation       |
+|              proposal               |      n.      |               建議               |
+|               propose               |      v.      |               提議               |
+|             proposition             |      n.      |               主張               |
+|              alliance               |      n.      |               聯盟               |
+|                ally                 |      n.      |               盟友               |
+|                union                |      n.      |               工會               |
+|              coalition              |      n.      |               聯合               |
+|             stipulation             |      n.      |               條款               |
+|              stipulate              |      v.      |               規定               |
+|                term                 |      n.      |               條款               |
+|             compromise              |    n./v.     |               妥協               |
+|            compromising             |     adj.     |              妥協的              |
+|                deal                 |    n./v.     |               交易               |
+|             negotiation             |      n.      |               談判               |
+|              negotiate              |      v.      |               談判               |
+|             negotiator              |      n.      |
+|              emergency              |      n.      |             緊急情況             |
+|              outgoing               |     adj.     |              外向的              |
+|               tightly               |     adv.     |              緊緊地              |
+|               tourist               |      n.      |              觀光客              |
+|               carrier               |      n.      |             運輸業者             |
+|             customarily             |     adv.     |              習慣上              |
+|              customary              |     adj.     |             習慣上的             |
+|               custom                |      n.      |            習俗；風俗            |
+|               customs               |      n.      |               海關               |
+|               confuse               |      v.      |              使困惑              |
+|               arrive                |      v.      |               到達               |
+|               arrival               |      n.      |               到達               |
+|              brochure               |      n.      |              小冊子              |
+|             negotiator              |      n.      |             談判代表             |
+|             negotiable              |     adj.     |        可協商的；可轉讓的        |
+|              agreement              |      n.      |            協議；同意            |
+|            disagreement             |      n.      |           不同意；分歧           |
+|              deadlock               |      n.      |               僵局               |
+|              contract               |      n.      |            合約；契約            |
+|             contractor              |      n.      |              承包商              |
+|             contraction             |      n.      |            縮寫；收縮            |
+|               retain                |      v.      |               保留               |
+|              signature              |      n.      |               簽名               |
+|             originally              |     adv.     |            起初；最初            |
+|              primarily              |     adv.     |           首先；主要地           |
+|              direction              |      n.      |               方向               |
+|               course                |      n.      |            課程；路線            |
+|              initially              |     adv.     |              最初地              |
+|              initiate               |      v.      |            發起；開始            |
+|               expire                |      v.      |               到期               |
+|             expiration              |      n.      |               到期               |
+|               expiry                |      n.      |             期限到期             |
+|             collaborate             |      v.      |               合作               |
+|            collaboration            |      n.      |               合作               |
+|            collaborative            |     adj.     |              協作的              |
+|              dedicate               |      v.      |            致力；奉獻            |
+|               commit                |      v.      |            承諾；犯罪            |
+|               revise                |      v.      |               修訂               |
+|             imperative              |     adj.     |              必要的              |
+|              essential              |     adj.     |          必要的；基本的          |
+|             compulsory              |     adj.     |             強制性的             |
+|            cooperatively            |     adv.     |              合作地              |
+|             commission              |      n.      |            委託；佣金            |
+|                 fee                 |      n.      |            費用；酬金            |
+|                omit                 |      v.      |               省略               |
+|              omission               |      n.      |            遺漏；疏忽            |
+|              conflict               |      n.      |               衝突               |
+|                renew                |      v.      |               更新               |
+|               renewal               |      n.      |               更新               |
+|              renewable              |     adj.     |             可再生的             |
+|               refresh               |      v.      |        使更新；使恢復精力        |
+|             proficient              |     adj.     |              熟練的              |
+|                adept                |     adj.     |          熟練的；擅長的          |
+|                adopt                |      v.      |            採用；收養            |
+|                adapt                |      v.      |            適應；改編            |
+|           confidentiality           |      n.      |              保密性              |
+|               dispute               |   v. / n.    |            爭議；爭端            |
+|              objection              |      n.      |            反對；異議            |
+|               define                |      v.      |            定義；解釋            |
+|             impression              |      n.      |            印象；感覺            |
+|              security               |      n.      |            安全；保全            |
+|               option                |      n.      |            選擇；選項            |
+|             optionally              |     adv.     |             可選擇地             |
+|            proceed with             |     phr.     |             繼續進行             |
+|               process               |   v. / n.    |            處理；過程            |
+|              procedure              |      n.      |            程序；手續            |
+|              proceeds               |      n.      |           收益；收益金           |
+|              progress               |      n.      |            進步；進展            |
+|               modify                |      v.      |            修改；變更            |
+|            modification             |      n.      |            修改；變更            |
+|                alter                |      v.      |            改變；修改            |
+|               narrow                |     adj.     |              狹窄的              |
+|               expand                |      v.      |            擴大；擴展            |
+|                 bid                 |   v. / n.    |            出價；投標            |
+|               outbid                |      v.      |        出高價超過（某人）        |
+|               settle                |      v.      |            解決；處理            |
+|             settlement              |      n.      |            解決；協議            |
+|              terminate              |      v.      |            終止；結束            |
+|             termination             |      n.      |            終止；結束            |
+|              terminal               |     adj.     |          終點的；末端的          |
+|              initiate               |      v.      |            發起；開始            |
+|             conclusion              |      n.      |            結論；結束            |
+|             foundation              |      n.      |           基礎；基金會           |
+|                found                |      v.      |            創建；建立            |
+|               founder               |      n.      |              創辦人              |
+|             fundraising             |      n.      |            募款；籌款            |
+| <font color="red">Chapter 16</font> |              |             Business             |
+|             completely              |     adv.     |              完全地              |
+|              complete               |     adj.     |              完整的              |
+|             completion              |      n.      |           完成，完成度           |
+|               totally               |     adv.     |              完全地              |
+|              partially              |     adv.     |              部分地              |
+|               refuse                |      v.      |               拒絕               |
+|               refusal               |      n.      |               拒絕               |
+|              turn down              |   phr. v.    |               拒絕               |
+|               approve               |      v.      |               批准               |
+|             temporarily             |     adv.     |              暫時地              |
+|              temporary              |     adj.     |              暫時的              |
+|             permanently             |     adv.     |              永久地              |
+|               dealer                |      n.      |              經銷商              |
+|                deal                 |    n. v.     |               交易               |
+|             dealership              |      n.      |              經銷商              |
+|                bulk                 |      n.      |               大量               |
+|              inventory              |      n.      |               存貨               |
+|                stock                |      n.      |               存貨               |
+|              shortage               |      n.      |               短缺               |
+|             deficiency              |      n.      |            缺乏，不足            |
+|               shorten               |      v.      |               縮短               |
+|               shortly               |     adv.     |               不久               |
+|           wide selection            |     phr.     |            多樣的選擇            |
+|             commercial              |     adj.     |              商業的              |
+|              provision              |      n.      |            提供，供應            |
+|               contact               |      v.      |               聯繫               |
+|          get in touch with          |     phr.     |               聯繫               |
+|               invoice               |      n.      |               發票               |
+|                move                 |      v.      |               搬遷               |
+|              transfer               |      v.      |               轉移               |
+|               supply                |    n. v.     |               供應               |
+|              supplier               |      n.      |              供應商              |
+|               provide               |      v.      |               提供               |
+|               furnish               |      v.      |               提供               |
+|             distribute              |      v.      |               分發               |
+|            distribution             |      n.      |               分配               |
+|             distributor             |      n.      |              經銷商              |
+|             acquisition             |      n.      |               收購               |
+|               assure                |      v.      |               保證               |
+|              assurance              |      n.      |               保證               |
+|              convince               |      v.      |               說服               |
+|               promise               |      v.      |               承諾               |
+|               subject               |    n./v.     |         主題/使受...影響         |
+|                seek                 |      v.      |               尋求               |
+|            satisfactory             |     adj.     |              滿意的              |
+|               satisfy               |      v.      |              使滿意              |
+|            satisfaction             |      n.      |              滿意度              |
+|           unsatisfaction            |      n.      |              不滿意              |
+|             satisfying              |     adj.     |            令人滿意的            |
+|              satisfied              |     adj.     |            感到滿意的            |
+|           satisfactorily            |     adv.     |              滿意地              |
+|            confirmation             |      n.      |               確認               |
+|               unable                |     adj.     |              無法的              |
+|               payment               |      n.      |               付款               |
+|               measure               |    n./v.     |            措施/測量             |
+|               bargain               |    n./v.     |          交易/討價還價           |
+|                deal                 |    n./v.     |            交易/處理             |
+|                stock                |      n.      |               存貨               |
+|              in stock               |     phr.     |              有現貨              |
+|            out of stock             |     phr.     |               缺貨               |
+|              inventory              |      n.      |             存貨清單             |
+|              supplies               |      n.      |               物資               |
+|            affordability            |      n.      |            負擔得起性            |
+|             affordable              |     adj.     |            負擔得起的            |
+|              clientele              |      n.      |               顧客               |
+|               acclaim               |    n./v.     |            稱讚/讚揚             |
+|              acclaimed              |     adj.     |            受到讚揚的            |
+|               praise                |    n./v.     |            讚美/讚揚             |
+|              represent              |      v.      |               代表               |
+|           representation            |      n.      |               代表               |
+|           representative            |   n./adj.    |          代表/代表性的           |
+|               rating                |      n.      |               評價               |
+|              encompass              |      v.      |               包括               |
+|              finalize               |      v.      |               完成               |
+|               retail                |    n./v.     |               零售               |
+|              retailer               |      n.      |              零售商              |
+|             wholesaler              |      n.      |              批發商              |
+|              wholesale              | n./adj./adv. |       批發；批發的；批發地       |
+|              commodity              |      n.      |           商品；日用品           |
+|                quote                |    v./n.     |            報價；引述            |
+|              estimate               |    v./n.     |            估計；估價            |
+|             consignment             |      n.      |            委託；寄售            |
+|               consign               |      v.      |            委託；托運            |
+| <font color="red">Chapter 17</font> |              |         trading, freight         |
+|               fragile               |     adj.     |              易碎的              |
+|             perishable              |     adj.     |              易腐的              |
+|               perish                |      v.      |            腐爛；毀滅            |
+|              perishing              |     adj.     |            即將腐爛的            |
+|            imperishable             |     adj.     |            不會腐爛的            |
+|               deliver               |      v.      |               遞送               |
+|              delivery               |      n.      |               遞送               |
+|               ensure                |      v.      |               確保               |
+|               assure                |      v.      |               保證               |
+|            make certain             |      v.      |               確認               |
+|             figure out              |      v.      |              弄清楚              |
+|               courier               |      n.      |              快遞員              |
+|               carton                |      n.      |               紙箱               |
+|              shipment               |      n.      |             貨物裝運             |
+|            particularly             |     adv.     |              特別地              |
+|             adequately              |     adv.     |              足夠地              |
+|              adequate               |     adj.     |              足夠的              |
+|              properly               |     adv.     |              正確地              |
+|            appropriately            |     adv.     |              適當地              |
+|            inadequately             |     adv.     |              不足地              |
+|               article               |      n.      |               物品               |
+|              efficient              |     adj.     |             有效率的             |
+|             efficiency              |      n.      |               效率               |
+|             efficiently             |     adv.     |             有效率地             |
+|              effective              |     adj.     |              有效的              |
+|             inefficient             |     adj.     |             無效率的             |
+|               agency                |      n.      |              代理商              |
+|               enclose               |      v.      |            圍住；附上            |
+|              enclosure              |      n.      |               附件               |
+|               pick up               |      v.      |            接收；取貨            |
+|               attach                |      v.      |               附上               |
+|              attached               |     adj.     |              附上的              |
+|             attachment              |      n.      |               附件               |
+|                affix                |      v.      |               附上               |
+|               detach                |      v.      |               分離               |
+|              formerly               |     adv.     |               以前               |
+|             convenience             |      n.      |               方便               |
+|            inconvenience            |      n.      |           不方便；麻煩           |
+|             acknowledge             |      v.      |               承認               |
+|           acknowledgement           |      n.      |               承認               |
+|            with caution             |     adv.     |            小心謹慎地            |
+|              cautious               |     adj.     |            小心謹慎的            |
+|            carelessness             |      n.      |               粗心               |
+|           correspondence            |      n.      |               通信               |
+|             correspond              |      v.      |            符合；相應            |
+|            correspondent            |      n.      |         通訊記者；通信者         |
+|              separate               |   v./adj.    |               分開               |
+|             separately              |     adv.     |              分別地              |
+|             separation              |      n.      |               分離               |
+|             remarkable              |     adj.     |              卓越的              |
+|             remarkably              |     adv.     |          明顯地；非常地          |
+|               handle                |      v.      |               處理               |
+|            take care of             |     phr.     |               照顧               |
+|              warehouse              |      n.      |               倉庫               |
+|               impose                |      v.      |             強制實行             |
+|             imposition              |      n.      |            徵收；課稅            |
+|                levy                 |    n./v.     |            徵稅；徵收            |
+|              envelope               |      n.      |               信封               |
+|               envelop               |      v.      |               包圍               |
+|              exclusion              |      n.      |               排除               |
+|               exclude               |      v.      |               排除               |
+|              exclusive              |     adj.     |          獨有的；專有的          |
+|             exclusively             |     adv.     |          專門地；唯一地          |
+|              recipient              |      n.      |              接收者              |
+|               sender                |      n.      |              寄件人              |
+|              incorrect              |     adj.     |             不正確的             |
+|             incorrectly             |     adv.     |             不正確地             |
+|             inaccurate              |     adj.     |             不精確的             |
+|               oblige                |      v.      |          強制；使不得不          |
+|             obligation              |      n.      |               義務               |
+|             obligatory              |     adj.     |         強制性的；義務的         |
+| <font color="red">Chapter 18</font> |              |            住宿 餐廳             |
+|              check in               |     phr.     |             登記入住             |
+|              checkout               |     phr.     |          退房，結帳離開          |
+|             compensate              |      v.      |               賠償               |
+|            compensation             |      n.      |               賠償               |
+|            compensatory             |     adj.     |             補償性的             |
+|            complimentary            |     adj.     |              免費的              |
+|                free                 |     adj.     |              免費的              |
+|                chef                 |      n.      |               主廚               |
+|               elegant               |     adj.     |              優雅的              |
+|              elegance               |      n.      |               優雅               |
+|               flavor                |      n.      |               風味               |
+|             accommodate             |      v.      |               容納               |
+|            accommodation            |      n.      |               住宿               |
+|                lodge                |      v.      |               寄宿               |
+|              reception              |      n.      |               接待               |
+|               receive               |      v.      |               收到               |
+|            receptionist             |      n.      |              接待員              |
+|             in advance              |     phr.     |               預先               |
+|            refreshments             |      n.      |               茶點               |
+|                make                 |      v.      |               製作               |
+|                cater                |      v.      |           提供餐飲服務           |
+|             reservation             |      n.      |               預訂               |
+|               reserve               |      v.      |               預約               |
+|               booking               |      n.      |               預訂               |
+|              beverage               |      n.      |               飲料               |
+|        confirm a reservation        |     phr.     |             確認預訂             |
+|            confirmation             |      n.      |               確認               |
+|            confirmative             |     adj.     |             確認性的             |
+|               verify                |      v.      |               核實               |
+|               cancel                |      v.      |               取消               |
+|                rate                 |      n.      |               費率               |
+|                 fee                 |      n.      |               費用               |
+|              decorate               |      v.      |               裝飾               |
+|             decorative              |     adj.     |             裝飾性的             |
+|             information             |      n.      |               資訊               |
+|               inform                |      v.      |               通知               |
+|               retain                |      v.      |               保留               | we will retain your sites for 10 minutes, please make sure you can coming in this time that you reservation. |
+|              retention              |      n.      |               保留               |
+|              maintain               |      v.      |               維持               |
+|             atmosphere              |      n.      |               氣氛               |
+|                mood                 |      n.      |               心情               |
+|                vibe                 |      n.      |               氛圍               |
+|               cuisine               |      n.      |               烹飪               |
+|              sequence               |      n.      |               順序               |
+|              extensive              |     adj.     |              廣泛的              |
+|              extension              |      n.      |               延伸               |
+|             extensively             |     adv.     |              廣泛地              |
+|            comprehensive            |     adj.     |              全面的              |
+|               diverse               |     adj.     |              多樣的              |
+|              diversity              |      n.      |              多樣性              |
+|                prior                |     adj.     |              先前的              |
+|              priority               |      n.      |               優先               |
+|               amenity               |      n.      |               設施               |
+|             belongings              |      n.      |              所有物              |
+|               entire                |     adj.     |              整個的              |
+|              entirely               |     adv.     |              完全地              |
+|             definitely              |     adv.     |              絕對地              |
+|                ease                 |      v.      |               緩和               |
+|              material               |      n.      |               原料               |
+|             ingredient              |      n.      |               配料               |
+|                 sip                 |    v./n.     |               啜飲               |
+|                stir                 |      v.      |               攪拌               |
+|             complicate              |      v.      |             使複雜化             |
+|            complication             |      n.      |             複雜情況             |
+|              freshness              |      n.      |              新鮮度              |
+|               occupy                |      v.      |               佔據               |
+|              occupancy              |      n.      |               佔用               |
+|              occupant               |      n.      |              居住者              |
+|             occupation              |      n.      |               職業               |
+| <font color="red">Chapter 19</font> |              |            獎金 收益             |
+|               decline               |      v.      |            下降，減少            |
+|              decrease               |    v./n.     |               減少               |
+|              reduction              |      n.      |               減少               |
+|               reject                |      v.      |               拒絕               |
+|              markedly               |     adv.     |              顯著地              |
+|               marked                |     adj.     |              顯著的              |
+|              obviously              |     adv.     |              明顯地              |
+|              increase               |    v./n.     |               增加               |
+|             increasing              |     adj.     |            不斷增加的            |
+|            increasingly             |     adv.     |            日益增加地            |
+|               revenue               |      n.      |               收入               |
+|               income                |      n.      |               收入               |
+|              earnings               |      n.      |               收益               |
+|             expenditure             |      n.      |               支出               |
+|             projection              |      n.      |               預測               |
+|               project               |    v./n.     |            預測；計畫            |
+|              estimate               |    v./n.     |               估計               |
+|             substantial             |     adj.     |              大量的              |
+|            substantially            |     adv.     |              大幅地              |
+|            considerable             |     adj.     |             相當大的             |
+|             anticipate              |      v.      |               預期               |
+|            anticipation             |      n.      |               預期               |
+|               expect                |      v.      |               預期               |
+|            significantly            |     adv.     |              顯著地              |
+|             significant             |     adj.     |              顯著的              |
+|            significance             |      n.      |              重要性              |
+|                shift                |    v./n.     |               轉變               |
+|                 fee                 |      n.      |               費用               |
+|                rate                 |      n.      |             率；費率             |
+|             production              |      n.      |               生產               |
+|               produce               |      v.      |               生產               |
+|             consumption             |      n.      |               消費               |
+|             impressive              |     adj.     |          令人印象深刻的          |
+|              impressed              |     adj.     |            受到感動的            |
+|             impression              |      n.      |               印象               |
+|               impress               |      v.      |            使印象深刻            |
+|            impressively             |     adv.     |          令人印象深刻地          |
+|           representative            |      n.      |               代表               |
+|              represent              |      v.      |               代表               |
+|               recent                |     adj.     |              最近的              |
+|               exceed                |      v.      |               超過               |
+|               excess                |   n./adj.    |           過量的，超過           |
+|              excessive              |     adj.     |              過度的              |
+|             exceedingly             |     adv.     |              非常地              |
+|               surpass               |      v.      |            超過，勝過            |
+|            fall short of            |      v.      |               不足               |
+|             improvement             |      n.      |               改善               |
+|              employer               |      n.      |               雇主               |
+|               regular               |     adj.     |              定期的              |
+|              regularly              |     adv.     |              定期地              |
+|              irregular              |     adj.     |             不定期的             |
+|              summarize              |      v.      |               總結               |
+|               summary               |      n.      |               摘要               |
+|              typically              |     adv.     |              典型地              |
+|              basically              |     adv.     |              基本上              |
+|                whole                |     adj.     |              完整的              |
+|               growth                |      n.      |               成長               |
+|               growing               |     adj.     |             成長中的             |
+|               figure                |    n./v.     |            數字，計算            |
+|               steady                |     adj.     |              穩定的              |
+|              frequent               |     adj.     |              頻繁的              |
+|              frequency              |      n.      |               頻率               |
+|               achieve               |      v.      |               達成               |
+|             achievement             |      n.      |               成就               |
+|              achiever               |      n.      |              成就者              |
+|                reach                |      v.      |               達到               |
+|             assumption              |      n.      |               假設               |
+|              encourage              |      v.      |               鼓勵               |
+|            discouraging             |     adj.     |            令人沮喪的            |
+|                incur                |      v.      |               遭受               |
+|             incurrence              |      n.      |               遭受               |
+|              slightly               |     adv.     |              輕微地              |
+|               slight                |     adj.     |              輕微的              |
+|               profit                |    n./v.     |            利潤，賺取            |
+|             profitable              |     adj.     |            有利可圖的            |
+|              lucrative              |     adj.     |              賺錢的              |
+|            profitability            |      n.      |             盈利能力             |
+|               reliant               |     adj.     |              依賴的              |
+|              reliance               |      n.      |               信賴               |
+|                rely                 |      v.      |               依賴               |
+|             illustrate              |      v.      |               說明               |
+|            illustration             |      n.      |               圖解               |
+|             illustrator             |      n.      |              插畫家              |
+|              accurate               |     adj.     |              精確的              |
+|             inaccurate              |     adj.     |             不精確的             |
+|             percentage              |      n.      |              百分比              |
+|               reduce                |      v.      |               減少               |
+|              reduction              |      n.      |               減少               |
+|              reductive              |     adj.     |              簡化的              |
+|              diminish               |      v.      |               減少               |
+|              decrease               |    v./n.     |               減少               |
+|                tend                 |      v.      |            趨向；傾向            |
+|              tendency               |      n.      |            傾向；趨勢            |
+| <font color="red">Chapter 20</font> |              |          會計 節省經費           |
+|                audit                |    n./v.     |            審計；稽核            |
+|               auditor               |      n.      |              審計師              |
+|             accounting              |      n.      |               會計               |
+|               budget                |      n.      |               預算               |
+|              financial              |     adj.     |              財務的              |
+|               finance               |      n.      |               融資               |
+|              financing              |      n.      |               融資               |
+|               curtail               |      v.      |               縮減               |
+|             curtailment             |      n.      |               縮減               |
+|               reduce                |      v.      |               減少               |
+|               deficit               |      n.      |               赤字               |
+|              shortfall              |      n.      |             不足之額             |
+|               surplus               |      n.      |               盈餘               |
+|              recently               |     adv.     |               最近               |
+|               lately                |     adv.     |               最近               |
+|            substantially            |     adv.     |              大幅地              |
+|             substantial             |     adj.     |              大量的              |
+|              substance              |      n.      |               實質               |
+|            significantly            |     adv.     |              顯著地              |
+|            considerably             |     adv.     |              相當地              |
+|              committee              |      n.      |              委員會              |
+|             frequently              |     adv.     |              頻繁地              |
+|             capability              |      n.      |               能力               |
+|              proceeds               |      n.      |               收益               |
+|              reimburse              |      v.      |               償還               |
+|          reimbursement for          |     phr.     |           對...的補償            |
+|              adequate               |     adj.     |              足夠的              |
+|              adequacy               |      n.      |               足夠               |
+|             adequately              |     adv.     |              足夠地              |
+|                total                |     adj.     |               總的               |
+|               totally               |     adv.     |              完全地              |
+|              allocate               |      v.      |               分配               |
+|             allocation              |      n.      |               分配               |
+|               assign                |      v.      |            分配、指派            |
+|              inspector              |      n.      |              檢查員              |
+|              preferred              |     adj.     |          優先的、首選的          |
+|               prefer                |      v.      |           更喜愛、偏愛           |
+|             preference              |      n.      |               偏好               |
+|               quarter               |      n.      |               季度               |
+|              quarterly              |     adj.     |              季度的              |
+|              interrupt              |      v.      |            中斷、打斷            |
+|               browse                |      v.      |               瀏覽               |
+|               prompt                |      v.      |           促使、迅速的           |
+|               deduct                |      v.      |               扣除               |
+|              deduction              |      n.      |              扣除額              |
+|             measurement             |      n.      |               測量               |
+|               shorten               |      v.      |               縮短               |
+|                amend                |      v.      |               修訂               |
+|              amendment              |      n.      |               修訂               |
+|              amendable              |     adj.     |             可修訂的             |
+|               revise                |      v.      |               修改               |
+|               modify                |      v.      |               修改               |
+|              calculate              |      v.      |               計算               |
+|             calculation             |      n.      |               計算               |
+|               exempt                |     adj.     |              免除的              |
+|              exemption              |      n.      |               免除               |
+|              deficient              |     adj.     |              不足的              |
+|             deficiency              |      n.      |               不足               |
+|             sufficient              |     adj.     |              足夠的              |
+|               compare               |      v.      |               比較               |
+|             comparison              |      n.      |               比較               |
+|             comparable              |     adj.     |             可比較的             |
+|              fortunate              |     adj.     |              幸運的              |
+|             fortunately             |     adv.     |              幸運地              |
+|             expenditure             |      n.      |               支出               |
+|               expend                |      v.      |               花費               |
+|               expense               |      n.      |               費用               |
+|               income                |      n.      |               收入               |
+|             accurately              |     adv.     |              精確地              |
+|              accurate               |     adj.     |              精確的              |
+|            inaccurately             |     adv.     |             不精確地             |
+|                worth                |     adj.     |              值得的              |
+|               worthy                |     adj.     |              值得的              |
+|             worthwhile              |     adj.     |             值得做的             |
+|               exceed                |      v.      |               超過               |
+|              excessive              |     adj.     |              過度的              |
+|             excessively             |     adv.     |              過度地              |
+|         in excess of funds          |     phr.     |             超過預算             |
+|              shortage               |      n.      |               短缺               |
+|               fiscal                |     adj.     |              財政的              |
+|             incidental              |     adj.     |              偶然的              |
+|              incident               |      n.      |               事件               |
+|            incidentally             |     adv.     |             順帶一提             |
+|              inflation              |      n.      |             通貨膨脹             |
+|               inflate               |      v.      |            使通貨膨脹            |
+|            inflationary             |     adj.     |            通貨膨脹的            |
+|               liable                |     adj.     |             有責任的             |
+|            be liable for            |     phr.     |            對...負責             |
+|         be responsible for          |     phr.     |            對...負責             |
+|              liability              |      n.      |               責任               |
+|           be liable to do           |     phr.     |          有做...的責任           |
+|           be likely to do           |     phr.     |          有做...的責任           |
+|              turnover               |      n.      |              營業額              |
+| <font color="red">Chapter 21</font> |              |            辦公室氣氛            |
+|              announce               |      v.      |               宣布               |
+|            announcement             |      n.      |             宣布事項             |
+|            interested in            |     phr.     |           對...感興趣            |
+|             activation              |      n.      |               啟動               |
+|             acceptable              |     adj.     |             可接受的             |
+|             acceptance              |      n.      |               接受               |
+|              accepting              |     adj.     |            樂意接受的            |
+|             acceptably              |     adv.     |            可以接受地            |
+|               foresee               |      v.      |               預見               |
+|             foreseeable             |     adj.     |             可預見的             |
+|             unforeseen              |     adj.     |            無法預料的            |
+|               predict               |      v.      |               預測               |
+|              expansion              |      n.      |               擴張               |
+|               expand                |      v.      |               擴展               |
+|              expansive              |     adj.     |              廣闊的              |
+|              relocate               |      v.      |               搬遷               |
+|             relocation              |      n.      |               搬遷               |
+|             competitor              |      n.      |             競爭對手             |
+|                asset                |      n.      |               資產               |
+|             contribute              |      v.      |               貢獻               |
+|            contribution             |      n.      |               貢獻               |
+|             contributor             |      n.      |              貢獻者              |
+|           be dedicated to           |     phr.     |              致力於              |
+|              committed              |     adj.     |             有承諾的             |
+|               devoted               |     adj.     |              熱愛的              |
+|             dedication              |      n.      |               奉獻               |
+|              misplace               |      v.      |               丟失               |
+|            considerable             |     adj.     |             相當大的             |
+|            consideration            |      n.      |               考慮               |
+|                last                 |     adj.     |              最後的              |
+|               emerge                |      v.      |               浮現               |
+|              emergence              |      n.      |               出現               |
+|              emergent               |     adj.     |              新興的              |
+|              nominate               |      v.      |               提名               |
+|               merger                |      n.      |               合併               |
+|             amalgamate              |      v.      |               合併               |
+|                imply                |      v.      |               暗示               |
+|                vital                |     adj.     |              重要的              |
+|              necessary              |     adj.     |              必要的              |
+|               vitally               |     adv.     |            極其重要地            |
+|               persist               |      v.      |               持續               |
+|             persistent              |     adj.     |              持續的              |
+|             persistence             |      n.      |              持久性              |
+|             imdependent             |     adj.     |              獨立的              |
+|              dependent              |     adj.     |              依賴的              |
+|                force                |      n.      |               力量               |
+|              establish              |      v.      |               建立               |
+|            establishment            |      n.      |               建立               |
+|             established             |     adj.     |             已建立的             |
+|              initiate               |      v.      |               開始               |
+|               initial               |     adj.     |              最初的              |
+|               enhance               |      v.      |               增強               |
+|             enhancement             |      n.      |               增強               |
+|              reinforce              |      v.      |               強化               |
+|             strengthen              |      v.      |               加強               |
+|              remowned               |     adj.     |              著名的              |
+|          informed decision          |      n.      |          經過思考的決策          |
+|               minutes               |      n.      |             會議記錄             |
+|                waive                |      v.      |               放棄               |
+|                reach                |      v.      |               達到               |
+|              reachable              |     adj.     |             可達到的             |
+|               achieve               |      v.      |               實現               |
+|              authority              |      n.      |               權威               |
+|               revoke                |      v.      |               撤銷               |
+|             transaction             |      n.      |               交易               |
+|               acquire               |      v.      |               取得               |
+|              property               |      n.      |               財產               |
+|              district               |      n.      |               區域               |
+|               surpass               |      v.      |               超過               |
+|            surpassingly             |     adv.     |            極其，非常            |
+|             improbable              |     adj.     |            不太可能的            |
+|                edge                 |      n.      |               邊緣               |
+|              advantage              |      n.      |               優勢               |
+|               border                |      n.      |               邊界               |
+|           simultaneously            |     adv.     |              同時地              |
+|               attempt               |      v.      |               嘗試               |
+|               reveal                |      v.      |               揭示               |
+|            productivity             |      n.      |              生產力              |
+|             productive              |     adj.     |            有生產力的            |
+|               certain               |     adj.     |              確定的              |
+|              certainly              |     adv.     |               當然               |
+|              uncertain              |     adj.     |             不確定的             |
+|               premier               |     adj.     |             最優秀的             |
+|              authorize              |      v.      |               授權               |
+| <font color="red">Chapter 22</font> |              |               會議               |
+|               agenda                |      n.      |               議程               |
+|               convene               |      v.      |               召集               |
+|               refute                |      v.      |               反駁               |
+|            coordination             |      n.      |               協調               |
+|              unanimous              |     adj.     |            全體一致的            |
+|              convince               |      v.      |               說服               |
+|             convincing              |     adj.     |            令人信服的            |
+|              convinced              |     adj.     |              確信的              |
+|          general consensus          |     phr.     |             大眾共識             |
+|                defer                |      v.      |               推遲               |
+|              postpone               |      v.      |               延後               |
+|                usual                |     adj.     |              通常的              |
+|             reschedule              |      v.      |           重新安排時間           |
+|             conference              |      n.      |               會議               |
+|               meeting               |      n.      |               會議               |
+|              determine              |      v.      |               決定               |
+|            determination            |      n.      |               決心               |
+|             determined              |     adj.     |            下定決心的            |
+|             reportable              |     adj.     |             可報導的             |
+|             reportedly              |     adv.     |              據報導              |
+|               comment               |      n.      |               評論               |
+|                phase                |      n.      |               階段               |
+|               approve               |      v.      |               批准               |
+|              enclosed               |     adj.     |              附上的              |
+|             suggestion              |      n.      |               建議               |
+|              attention              |      n.      |               注意               |
+|              attentive              |     adj.     |              注意的              |
+|             attentively             |     adv.     |              用心地              |
+|           object to V-ing           |     phr.     |       反對以 V-ing 為主詞        |
+|              objection              |      n.      |               反對               |
+|              objective              |     adj.     |              客觀的              |
+|           coincidentally            |     adv.     |              巧合地              |
+|               crowded               |     adj.     |              擁擠的              |
+|               undergo               |      v.      |               經歷               |
+|               outcome               |      n.      |               結果               |
+|             consequence             |      n.      |               後果               |
+|              narrowly               |     adv.     |              僅僅地              |
+|               differ                |      v.      |               不同               |
+|               discuss               |      v.      |               討論               |
+|             discussion              |      n.      |               討論               |
+|                brief                |     adj.     |              簡短的              |
+|               briefly               |     adv.     |              簡短地              |
+|              distract               |      v.      |            分散注意力            |
+|             distraction             |      n.      |               分心               |
+|              emphasis               |      n.      |               強調               |
+|              emphasize              |      v.      |               強調               |
+|              emphatic               |     adj.     |              強調的              |
+|                press                |      v.      |                壓                |
+|              organize               |      v.      |               組織               |
+|            organization             |      n.      |               組織               |
+|              organizer              |      n.      |              組織者              |
+|               mention               |      v.      |               提到               |
+|             persuasive              |     adj.     |            有說服力的            |
+|              persuade               |      v.      |               說服               |
+|             persuasion              |      n.      |              說服力              |
+|            persuasively             |     adv.     |            有說服力地            |
+|            unconvincing             |     adj.     |           不令人信服的           |
+|            understanding            |      n.      |               理解               |
+|           understandable            |     adj.     |            可以理解的            |
+|               adjourn               |      v.      |               休會               |
+|            constructive             |     adj.     |            有建設性的            |
+|              construct              |      v.      |               建設               |
+|            construction             |      n.      |               建設               |
+|           constructively            |     adv.     |            有建設性地            |
+|             destructive             |     adj.     |             破壞性的             |
+|               preside               |      v.      |               主持               |
+|              president              |      n.      |               總統               |
+|             presidency              |      n.      |             總統任期             |
+|             irrelevant              |     adj.     |             不相關的             |
+|              relevant               |     adj.     |              有關的              |
+|             constraint              |      n.      |               約束               |
+|             inhibition              |      n.      |               禁止               |
+| <font color="red">Chapter 23</font> |              |             員工福利             |
+|             convention              |      n.      |            大會、會議            |
+|               annual                |     adj.     |              每年的              |
+|         annual growth rate          |     phr.     |             年增長率             |
+|          annual conference          |     phr.     |             年度會議             |
+|      annual safety inspection       |     phr.     |           年度安全檢查           |
+|              biannual               |     adj.     |             每兩年的             |
+|              biennial               |     adj.     |            兩年一次的            |
+|               purpose               |      n.      |               目的               |
+|              proposal               |      n.      |            提議、建議            |
+|              purposely              |     adv.     |         故意地、有目的地         |
+|                 aim                 |      n.      |            目標、目的            |
+|      enroll, register, sign up      |      v.      |         報名、註冊、報到         |
+|             enrollment              |      n.      |            報名、註冊            |
+|               lecture               |      n.      |            講座、演講            |
+|              lecturer               |      n.      |           講師、演講者           |
+|             participant             |      n.      |          參與者、參加者          |
+|           participate in            |      v.      |            參與、參加            |
+|            participation            |      n.      |            參與、參加            |
+|               attend                |      v.      |            參加、出席            |
+|             attendance              |      n.      |          出席、到場人數          |
+|              attendee               |      n.      |          出席者、參加者          |
+|              attendant              |      n.      |           服務員、侍者           |
+|         encourage, promote          |      v.      |            鼓勵、促進            |
+|           leave, absence            |      n.      |            缺席、離開            |
+|           recommendation            |      n.      |            建議、推薦            |
+|             conference              |      n.      |           會議、研討會           |
+|              schedule               |      n.      |          計畫表、行程表          |
+|               include               |      v.      |            包含、包括            |
+|              inclusion              |      n.      |            包含、包容            |
+|              inclusive              |     adj.     |          包含的、包容的          |
+|               contain               |      v.      |            包含、容納            |
+|               exclude               |      v.      |           排除、不包括           |
+|              register               |      v.      |            註冊、登記            |
+|      registration, enrollment       |      n.      |            註冊、登記            |
+|              enroll in              |     phr.     |            註冊、報名            |
+|             requirement             |      n.      |            要求、需求            |
+|              required               |     adj.     |          必須的、必要的          |
+|              call for               |     phr.     |            呼籲、要求            |
+|               entail                |      v.      |            牽涉、需要            |
+|              grateful               |     adj.     |          感激的、感謝的          |
+|              overtime               |      n.      |            加班、超時            |
+|           responsibility            |      n.      |            責任、職責            |
+|             responsible             |     adj.     |         負責的、有責任的         |
+|               assert                |      v.      |               斷言               |
+|               assent                |      n.      |               同意               |
+|                asset                |      n.      |               資產               |
+|            regard A as B            |      v.      |           把 A 視為 B            |
+|              regarding              |    prep.     |               關於               |
+|              tentative              |     adj.     |              暫定的              |
+|             tentatively             |     adv.     |              暫時地              |
+|              temporary              |     adj.     |              暫時的              |
+|             indefinite              |     adj.     |             不確定的             |
+|            functionality            |      n.      |              功能性              |
+|           commence, begin           |      v.      |               開始               |
+|            commencement             |      n.      |               開始               |
+|         objective, purpose          |      n.      |               目的               |
+|              objection              |      n.      |               反對               |
+|             objectivity             |      n.      |              客觀性              |
+|            reimbursement            |      n.      |               補償               |
+|              reimburse              |      v.      |               補償               |
+|              treatment              |      n.      |               治療               |
+|             in honor of             |    prep.     |               紀念               |
+|              emphasize              |      v.      |               強調               |
+|              emphasis               |      n.      |               強調               |
+|                entry                |      n.      |               進入               |
+|                earn                 |      v.      |               賺取               |
+|               earning               |      n.      |               收入               |
+|            problem arise            |     phr.     |             出現問題             |
+|                labor                |      n.      |               勞工               |
+|                union                |      n.      |               工會               |
+|                exist                |      v.      |               存在               |
+|              existing               |     adj.     |              現有的              |
+|              existence              |      n.      |               存在               |
+|               exploit               |      v.      |               利用               |
+|            exploitation             |      n.      |               利用               |
+| <font color="red">Chapter 24</font> |              |             人事異動             |
+|               appoint               |      v.      |               任命               |
+|              appraisal              |      n.      |               評估               |
+|              appraise               |      v.      |               評估               |
+|             assessment              |      n.      |               評估               |
+|             evaluation              |      n.      |               評估               |
+|              evaluate               |      v.      |               評估               |
+|               promote               |      v.      |               晉升               |
+|              promotion              |      n.      |               晉升               |
+|             promotional             |     adj.     |              促銷的              |
+|               demote                |      v.      |               降職               |
+|            be skilled at            |     phr.     |               擅長               |
+|              radically              |     adv.     |              徹底地              |
+|             exceptional             |     adj.     |              傑出的              |
+|            exceptionally            |     adv.     |              非常地              |
+|             remarkable              |     adj.     |            非常優秀的            |
+|            appreciation             |      n.      |               感謝               |
+|             appreciate              |      v.      |               感謝               |
+|             preference              |      n.      |               偏好               | what is your meal preference, noodle or rice ?                                                               |
+|             management              |      n.      |               管理               |
+|               predict               |      v.      |               預測               |
+|              transfer               |      v.      |               調職               |
+|                award                |   n. / v.    |          獎 / 授予獎項           |
+|              mandatory              |     adj.     |             強制性的             |
+|              competent              |     adj.     |              能幹的              |
+|             performance             |      n.      |               表現               |
+|               perform               |      v.      |               表現               |
+|              performer              |      n.      |              表演者              |
+|              execution              |      n.      |               執行               |
+|                early                | adj. / adv.  |          早期的 / 早地           |
+|              designate              |      v.      |               指定               |
+|              executive              |  n. / adj.   |      高層管理人員 / 執行的       |
+|             dedication              |      n.      |               奉獻               |
+|             unanimously             |     adv.     |            全體一致地            |
+|              progress               |   n. / v.    |           進展 / 進展            |
+|             progressive             |     adj.     |              進步的              |
+|            congratulate             |      v.      |               祝賀               |
+|           congratulation            |      n.      |               祝賀               |
+|               dismiss               |      v.      |               解僱               |
+|              dismissal              |      n.      |               解僱               |
+|            independence             |      n.      |               獨立               |
+|            participation            |      n.      |               參與               |
+|             participate             |      v.      |               參與               |
+|             participant             |      n.      |              參加者              |
+|             involvement             |      n.      |               涉及               |
+|               praise                |   n. / v.    |           讚揚 / 讚揚            |
+|             compliment              |    n./v.     |               讚美               |
+|           accomplishment            |      n.      |               成就               |
+|            deliberation             |      n.      |             深思熟慮             |
+|             leadership              |      n.      |               領導               |
+|             scholarship             |      n.      |              獎學金              |
+|            deliberation             |      n.      |             深思熟慮             |
+|             leadership              |      n.      |               領導               |
+|               retire                |      v.      |               退休               |
+|             retirement              |      n.      |               退休               |
+|             nomination              |      n.      |               提名               |
+|              nominate               |      v.      |               提名               |
+|               nominee               |      n.      |             被提名人             |
+|             appointment             |      n.      |            約定, 任命            |
+|             reorganize              |      v.      |               重組               |
+|           reorganization            |      n.      |               重組               |
+|             serve, act              |      v.      |            服務，擔任            |
+|               service               |      n.      |               服務               |
+|            encouragement            |      n.      |               鼓勵               |
+|              encourage              |      v.      |               鼓勵               |
+|             encouraging             |     adj.     |            鼓舞人心的            |
+|             resignation             |      n.      |               辭職               |
+|          resign, step down          |      v.      |               辭職               |
+|              strictly               |     adv.     |              嚴格地              |
+|               strict                |     adj.     |              嚴格的              |
+|          severely, sternly          |     adv.     |          嚴重地, 嚴格地          |
+| <font color="red">Chapter 25</font> |              |               交通               |
+|             congestion              |      n.      |               擁塞               |
+|               congest               |      v.      |               堵塞               |
+|             traffic jam             |      n.      |             交通堵塞             |
+|              alleviate              |      v.      |               減輕               |
+|             alleviation             |      n.      |               減輕               |
+|                ease                 |    n./v.     |            緩和；容易            |
+|             exacerbate              |      v.      |               惡化               |
+|               divert                |      v.      |               轉移               |
+|               detour                |    n./v.     |            繞路；繞行            |
+|                fuel                 |    n./v.     |            燃料；加油            |
+|             malfunction             |    n./v.     |            故障；失靈            |
+|               permit                |    n./v.     |           許可證；允許           |
+|             permission              |      n.      |               允許               |
+|             permissive              |     adj.     |              寬容的              |
+|             permissibly             |     adv.     |             可允許地             |
+|                allow                |      v.      |               允許               |
+|               forbid                |      v.      |               禁止               |
+|              prohibit               |      v.      |               禁止               |
+|           transportation            |      n.      |             交通運輸             |
+|              transport              |    v./n.     |            運輸；運送            |
+|           opportunity to            |      n.      |               機會               |
+|               clearly               |     adv.     |              明顯地              |
+|              evidently              |     adv.     |              顯然地              |
+|              obviously              |     adv.     |              明顯地              |
+|               ongoing               |     adj.     |             進行中的             |
+|              detailed               |     adj.     |              詳細的              |
+|             alternative             |   n./adj.    |           替代；另類的           |
+|            alternatively            |     adv.     | 或者；另外, 不然的話, 兩者擇一地 |
+|              alternate              |   adj./v.    |           交替的；輪流           |
+|             alternation             |      n.      |               交替               |
+|            obtain secure            |      v.      |             獲得保障             |
+|             obtainable              |     adj.     |             可獲得的             |
+|             designated              |     adj.     |              指定的              |
+|              designate              |      v.      |               指定               |
+|             designation             |      n.      |               指定               |
+|              appointed              |     adj.     |              委任的              |
+|            intersection             |      n.      |             十字路口             |
+|                equip                |      v.      |               裝備               |
+|               commute               |      v.      |               通勤               |
+|              commuter               |      n.      |              通勤者              |
+|              downtown               |   adj./n.    |          市區的；市中心          |
+|             automotive              |     adj.     |              汽車的              |
+|               closure               |      n.      |               封閉               |
+|               vehicle               |      n.      |               車輛               |
+|              platform               |      n.      |               平台               |
+|              official               |   adj./n.    |           官方的；官員           |
+|             officially              |     adv.     |              正式地              |
+|               formal                |     adj.     |              正式的              |
+|               transit               |      n.      |               運輸               |
+|                fare                 |      n.      |               車費               |
+|               expense               |      n.      |               費用               |
+|             expenditure             |      n.      |               支出               |
+|                trust                |      n.      |               信任               |
+|              trustful               |     adj.     |            充滿信任的            |
+|             trustworthy             |     adj.     |            值得信任的            |
+|                fine                 |      n.      |               罰款               |
+|               penalty               |      n.      |            刑罰，處罰            |
+|               forfeit               |      v.      |            喪失，沒收            |
+|               passage               |      n.      |            通道，通行            |
+|              passenger              |      n.      |               乘客               |
+|             prominently             |     adv.     |              顯著地              |
+|               average               |     adj.     |              平均的              |
+|               reserve               |      v.      |            預訂，保留            |
+|             reservation             |      n.      |            預訂，保留            |
+|              collision              |      n.      |            碰撞，衝突            |
+|                 tow                 |      v.      |              拖，拉              |
+|               reverse               |      v.      |            倒轉，相反            |
+|              obstruct               |      v.      |            阻礙，妨礙            |
+| <font color="red">Chapter 26</font> |              |               銀行               |
+|             delinquent              |     adj.     |          疏忽的，失職的          |
+|             delinquency             |      n.      |            疏忽，失職            |
+|            delinquently             |     adv.     |          疏忽地，失職地          |
+|               overdue               |     adj.     |          過期的，逾期的          |
+|             outstanding             |     adj.     |        未解決的，未付款的        |
+|             regrettably             |     adv.     |            令人遺憾地            |
+|             regrettable             |     adj.     |            令人遺憾的            |
+|             regretfully             |     adv.     |          懊悔地，后悔地          |
+|               balance               |      n.      |            平衡，結餘            |
+|               deposit               |      n.      |            存款，押金            |
+|             withdrawal              |      n.      |            取款，提款            |
+|             previously              |     adv.     |            事先，以前            |
+|              previous               |     adj.     |          先前的，以前的          |
+|               due to                |    prep.     |            由於，因為            |
+|               receive               |      v.      |            收到，接收            |
+|               receipt               |      n.      |            收據，收條            |
+|              reception              |      n.      |           接待，招待會           |
+|             expectation             |      n.      |            期望，預期            |
+|             expectedly              |     adv.     |              預期地              |
+|             anticipate              |      v.      |            預期，期待            |
+|             certificate             |      n.      |            證書，證明            |
+|            certification            |      n.      |            認證，證明            |
+|               certify               |      v.      |            證明，認證            |
+|              certified              |     adj.     |          認證的，合格的          |
+|             documentary             |     adj.     |         文件的，紀錄片的         |
+|            documentation            |      n.      |            文件，記錄            |
+|              spending               |      n.      |            支出，消費            |
+|            successfully             |     adv.     |              成功地              |
+|               succeed               |      v.      |            成功，繼承            |
+|              resident               |      n.      |               居民               |
+|              pleasure               |      n.      |               愉悅               |
+|               summary               |      n.      |               概要               |
+|              summarize              |      v.      |            總結，概述            |
+| <font color="red">Chapter 29</font> |              |         weather forecast         |
+|          weather forecast           |      n.      |             天氣預報             |
+|              preserve               |      v.      |            保護，保存            |
