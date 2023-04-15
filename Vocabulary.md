@@ -224,7 +224,7 @@
 |                deal                 |    n./v.     |               交易               |
 |             negotiation             |      n.      |               談判               |
 |              negotiate              |      v.      |               談判               |
-|             negotiator              |      n.      |
+|             negotiator              |      n.      |              談判者              |
 |              emergency              |      n.      |             緊急情況             |
 |              outgoing               |     adj.     |              外向的              |
 |               tightly               |     adv.     |              緊緊地              |
@@ -237,8 +237,6 @@
 |               confuse               |      v.      |              使困惑              |
 |               arrive                |      v.      |               到達               |
 |               arrival               |      n.      |               到達               |
-|              brochure               |      n.      |              小冊子              |
-|             negotiator              |      n.      |             談判代表             |
 |             negotiable              |     adj.     |        可協商的；可轉讓的        |
 |              agreement              |      n.      |            協議；同意            |
 |            disagreement             |      n.      |           不同意；分歧           |
@@ -340,7 +338,6 @@
 |               contact               |      v.      |               聯繫               |
 |          get in touch with          |     phr.     |               聯繫               |
 |               invoice               |      n.      |               發票               |
-|                move                 |      v.      |               搬遷               |
 |              transfer               |      v.      |               轉移               |
 |               supply                |    n. v.     |               供應               |
 |              supplier               |      n.      |              供應商              |
