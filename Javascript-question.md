@@ -205,7 +205,138 @@ async function delay() {
 delay();
 ```
 
+### Symbol
+
+具有 Symbol.iterator 屬性的對象並不一定是迭代器，它只是定義了迭代的接口。
+要想創建一個代器，需要一個現實對象的 next()，該方法返回一個 value & done 的對象，
+分别表示迭代器的當前值以及是否迭代完所有值。
+
+Symbol 還有很多其他的用途，比如在對象中使用 Symbol 作為屬性名衝突，提高代碼可維護性。
+同时，由於 Symbol 是不可變的，因此可以確保每個屬性名都是唯一的，避免了字符串屬性名的一些問題。
+
+```javascript
+// judge is iterable
+function isIterable(obj) {
+  return typeof obj[Symbol.iterator] === "function";
+}
+```
+
 ### Promise (implement Promise.all, Promise.race)
+
+```javascript
+// (1) Promise.All
+// Promise.resolve is static function in constructor
+// New Promise(resolve) , resolve is a call back function
+Promise.newAll = (promises) => {
+  return new Promise((rs, rj) => {
+    var count = 0;
+    var result = [];
+    var len = promises.length;
+    if (len == 0) return promises;
+
+    // traverse promises
+    promises.forEach((p, i) => {
+      Promise.resolve(p)
+        .then((res) => {
+          // promise ssuccess executed
+          count++;
+          result[i] = res;
+          // it means all promise executed success
+          if (len == count) rs(result);
+        })
+        .catch(rj);
+    });
+  });
+};
+
+var p1 = Promise.resolve(1);
+var p2 = new Promise((resolve, reject) =>
+  setTimeout(() => {
+    resolve(2);
+    // reject(2)
+  }, 1000)
+);
+var p3 = Promise.resolve(3);
+
+var t = Promise.newAll([p1, p2, p3]).then(console.log);
+
+console.log(t);
+
+// (2) Promise.race(iterable)
+Promise.newRace = function (promises) {
+  var isIterable = (obj) => typeof obj[Symbol.iterator] === "function";
+  if (!isIterable(promises)) return;
+  return new Promise((re, rj) => {
+    for (const p of promises) {
+      Promise.resolve(p)
+        .then((res) => {
+          re(res);
+        })
+        .catch(rj);
+    }
+  });
+};
+
+var p1 = new Promise((resolve, reject) => setTimeout(resolve, 3000, "p1"));
+var p2 = new Promise((resolve, reject) => setTimeout(resolve, 5000, "p2"));
+
+Promise.newRace([p1, p2]).then(console.log);
+```
+
+### implement setTimeout
+
+```javascript
+function settimeout(handler, ms, val) {
+  if (typeof handler !== "function") return;
+  function trampoline(f) {
+    while (f && f instanceof Function) {
+      f = f();
+    }
+    // return f
+  }
+  var delay = ms;
+  var firstTime = Date.now();
+  return new Promise((resolve) => {
+    function handle() {
+      // 一秒執行 2760w 次
+      var t = Date.now();
+      if (t - firstTime >= delay) {
+        resolve(handler(val));
+      } else {
+        return handle;
+      }
+    }
+    trampoline(handle);
+  });
+}
+settimeout(console.log, 2000, "11");
+
+// requestAnimationFrame(callback)
+function settimeout(handler, ms, val) {
+  if (typeof handler !== "function") return;
+  // function trampoline(f){
+  //   while(f && f instanceof Function){
+  //     f = f()
+  //   }
+  // }
+  var delay = ms;
+  var firstTime = Date.now();
+  return new Promise((resolve) => {
+    function handle() {
+      // 一秒 16 楨
+      var t = Date.now();
+      if (t - firstTime >= delay) {
+        resolve(handler(val));
+      } else {
+        requestAnimationFrame(handle);
+      }
+    }
+    requestAnimationFrame(handle);
+  });
+}
+
+settimeout(console.log, 2000, "11");
+```
 
 ### async await, yield \* generator
 
@@ -241,6 +372,10 @@ console.log(Object.getPrototypeOf(person1) === Person.prototype); // true, 所�
 
 console.log(person1.prototype); // undefined, 宣告的 person1 為 instance, 非一個建構函式 不具備 prototype 屬性
 ```
+
+## Implicit conversion rules
+
+https://javascript.plainenglish.io/interviewer-can-a-1-a-2-a-3-ever-evaluate-to-true-in-javascript-d2329e693cde
 
 ### Compare json
 
