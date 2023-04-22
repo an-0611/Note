@@ -118,9 +118,27 @@ var compose = function (funcs) {
     return param;
   };
 };
-
-var fn = compose([(x) => x + 1, (x) => 2 * x]);
+var fn = compose(
+  (x) => x + 1,
+  (x) => 2 * x
+);
 fn(4); // 9
+// or
+var compose = (...fns) => {
+  return function (...args) {
+    // 如果 arg 是固定傳入的 這樣就沒辦法用嵌套的方式把上一個結果當成參數傳下去, 如 second solution
+    return fns.reduceRight(
+      (acc, fn) => (Array.isArray(acc) ? fn(...acc) : fn(acc)),
+      args
+    );
+  };
+};
+
+var result = compose(
+  (x) => x * x,
+  (x, y) => x + y
+)(5, 2);
+console.log(result); // 49
 ```
 
 ```javascript
@@ -348,9 +366,100 @@ settimeout(console.log, 2000, "11");
 
 ### This
 
-### Arrow function
+```javascript
+This 的指向是在函數被調用時確定的 而不是在函數定義時 (哪個對象調用函數, this 就指向誰)
 
-### Class
+var a = {
+    value: 1,
+    getVal: () => {
+        console.log(this);
+        return this.value;
+    }
+}
+
+var b = {
+    value: 2,
+    getVal: function() {
+        console.log(this);
+        return this.value;
+    }
+}
+
+// console.log(a.getVal()) // this = window, // window.value = undefined
+// console.log(b.getVal()) // this = b, // b.value = 2
+// var c = a.getVal;
+// var d = b.getVal;
+// console.log(c()) // this = window, // window.value = undefined
+// console.log(d()) // this = window // window.value = undefined
+// var d = b.getVal; => 函數丟失了它的上下文，也就是 b 對象，此時 this 不再指向 b，而是指向全局作用域，即 window
+// 此時的 d 也註冊在 window.d 上, 當調用函數時自然指向 this.
+var e = () => b.getVal(); // this = b, // val = 2,
+// e 這邊的 arrow func this 是執行被 "b" 定義時的 getVal, 故 this 指向 b
+```
+
+### Arrow function (this 取決於定義時 ctx 最近的 this)
+
+```javascript
+指向在定義函數時的上下文環境（lexical context），而不是在執行函數時的上下文環境。
+也就是說，箭頭函數的this值是在定義時確定的，而不是在運行時確定的。
+一般函數的this值是在函數被調用時確定的，並且取決於函數調用時的上下文。
+
+箭頭函式沒有自己的 this，它的 this 是繼承自包含它的最近的非箭頭函式的 this 值。
+因此，在箭頭函式內無法使用 call、apply、bind 等方法來改變 this 的指向。
+箭頭函式的 this 是靜態的，指向該箭頭函式所在的作用域的 this，一旦綁定就無法再被更改。
+```
+
+### Implement Array map function (Using reduce)
+
+```javascript
+Array.prototype.MAP = function (callback, ctx = null) {
+  if (typeof callback !== "function")
+    throw new Error("callback should be Function!");
+  console.log(ctx);
+  return this.reduce((acc, cur, i, array) => {
+    return acc.concat(callback.call(ctx, cur, i, array));
+  }, []);
+};
+
+// callback 不使用 this
+var callback = (el) => el * 5; // this = window, 利用傳入 ctx 來指定上下文讓 this 修改為其他對象避免抓不到值
+var newArr = [1, 2, 3].MAP(callback);
+console.log(newArr); // [5,10,15]
+
+// callback 使用 this, 且不綁定 ctx
+var callback1 = (el) => el * this.value; // window.value = undefined
+var callback2 = function (el) {
+  return el * this.value;
+}; // window.value = undefined
+var newArr = [1, 2, 3].MAP(callback1);
+console.log(newArr); // [NaN, NaN, NaN]
+
+// callback 使用 this, 且綁定 ctx, 分別測試 arrow function & normal function
+var obj = {
+  value: 5,
+};
+var newArr1 = [1, 2, 3].MAP(callback1, obj); // [NaN, NaN, NaN]
+var newArr2 = [1, 2, 3].MAP(callback2, obj); // [5,10,15]
+console.log("newArr1: ", newArr1); // [NaN, NaN, NaN] => callback = arrow func => 宣告時已經綁定, 且無法使用 call, apply, bind 修改
+console.log("newArr2: ", newArr2); // [5,10,15]
+```
+
+### Symbol
+
+### NaN
+
+```javascript
+NaN 的全名是 Not-a-Number，是 JavaScript 中一種特殊的數值型別，表示不是一個合法的數字。
+
+NaN 有以下特性：
+
+NaN 是一個數值型別的值，但是它和任何其他值（包括它自己）都不相等，包括 NaN !== NaN。
+在任何涉及 NaN 的操作中，結果都是 NaN，比如 1 + NaN、NaN + NaN、Math.sqrt(-1)、parseInt("abc") 等。
+NaN 與任何值的比較都返回 false，包括 NaN > 1、NaN < 1、NaN == 1、NaN === 1 等。
+因為 NaN 的這些特性，它通常被用來表示一個無效的或者未知的數值，比如在一些數學計算中可能出現錯誤導致結果為 NaN，或者用戶輸入錯誤的數據導致解析失敗也會返回 NaN。因此，在編寫 JavaScript 程序時，需要注意對 NaN 的處理。
+```
+
+### Class && super (子類繼承父類的屬性和方法, ex: extend 的子類也需要 name 這個屬性)
 
 ### Prototype (構造函式的屬性, 可讓所有 instance 共用函式), **proto** // 能使用繼承來的哪些屬性
 
@@ -418,3 +527,18 @@ sessionStorage 仍然可以在新開的頁面中訪問到，前提是這個頁�
 ##### Singleton
 
 ##### collaborated code
+
+### Array amortization resize
+
+### Linked list
+
+https://pjchender.dev/dsa/dsa-array-linked-list/
+https://ithelp.ithome.com.tw/articles/10217537
+
+### Git
+
+https://backlog.com/git-tutorial/tw/stepup/stepup2_4.html
+
+### SOLID
+
+https://ithelp.ithome.com.tw/articles/10252738?sc=rss.iron

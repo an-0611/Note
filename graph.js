@@ -1,3 +1,4 @@
+// implement graph
 class Graph {
   constructor() {
     this.adjacencyList = new Map();
@@ -17,50 +18,8 @@ class Graph {
   }
 }
 
-// 測試範例
-// const graph = new Graph();
-
-var bfs = (dom) => {
-  const queue = [];
-  const nodeList = [];
-  if (dom) {
-    queue.push(dom);
-    while (queue.length) {
-      const node = queue.shift(); // 取出第一個節點
-      nodeList.push(node.name); // a, b, c
-      //子节点依次从队列尾部加入
-      node.children.forEach((child) => {
-        queue.push(child);
-      });
-    }
-  }
-  console.log(nodeList);
-  return nodeList;
-};
-
 var graph = new Graph();
-
-// ========================================
-
-var bfsDOM = (dom) => {
-  const queue = [];
-  const nodeList = [];
-  if (dom) {
-    queue.push(dom);
-    while (queue.length) {
-      const node = queue.shift();
-      nodeList.push(node.name);
-      node.children.forEach((child) => {
-        queue.push(child);
-      });
-    }
-  }
-  return nodeList;
-};
-var result = bfsDOM(dom);
-console.log(result.join("=>"));
-
-const dom = {
+var dom = {
   name: "a",
   children: [
     {
@@ -91,12 +50,29 @@ const dom = {
     },
   ],
 };
-
-const result = breadth(dom);
-console.log(result.join("=>")); // order => 'a=>b=>c=>d=>e=>f=>g'
+var bfsDOM = (dom) => {
+  const queue = [];
+  const nodeList = [];
+  if (dom) {
+    queue.push(dom);
+    while (queue.length) {
+      const node = queue.shift();
+      nodeList.push(node.name);
+      node.children.forEach((child) => {
+        queue.push(child);
+      });
+    }
+  }
+  return nodeList;
+};
+var result = bfsDOM(dom);
+console.log(result.join("=>"));
 
 // ================================================================================
-var obj = {
+
+// try to write terry yt question answer
+
+var mockData = {
   1: [2, 3, 4],
   2: [1, 5],
   3: [1, 5],
@@ -112,7 +88,7 @@ async function getGraph(startNode) {
   while (queue.length) {
     const currentNode = queue.shift();
     // const res = await fetch(`https://api/${currentNode}`);
-    const res = obj[currentNode];
+    const res = mockData[currentNode];
     if (!res) return;
     //   if (!res.ok) {
     //     console.error(`Error fetching node ${currentNode}`);
