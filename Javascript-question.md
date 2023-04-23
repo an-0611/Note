@@ -442,6 +442,10 @@ var newArr1 = [1, 2, 3].MAP(callback1, obj); // [NaN, NaN, NaN]
 var newArr2 = [1, 2, 3].MAP(callback2, obj); // [5,10,15]
 console.log("newArr1: ", newArr1); // [NaN, NaN, NaN] => callback = arrow func => 宣告時已經綁定, 且無法使用 call, apply, bind 修改
 console.log("newArr2: ", newArr2); // [5,10,15]
+
+設計 callback 且 callback 中使用到 this 時
+(1) callback = arrow function, 如果直接註冊在外部會綁定 window, 如果想使用某個對象的值盡量在其 ctx 內宣告
+(2) callback = normal function, 以此設計會比較簡單, 隨時可以使用 call, apply, bind 綁定 this.
 ```
 
 ### Symbol
@@ -542,3 +546,59 @@ https://backlog.com/git-tutorial/tw/stepup/stepup2_4.html
 ### SOLID
 
 https://ithelp.ithome.com.tw/articles/10252738?sc=rss.iron
+
+### Effect
+
+```javascript
+// effect with typing each skill
+var arr = ["Javascript", "React", "Python"].map((el) => el + "   "); // 在每個字串後面多加三個空白 等於讓整個單字有延遲效果
+for (let i = 0; i < arr.length; i++) {
+  let curStr = arr[i];
+  let VocabularyTime = 2600;
+  setTimeout(() => {
+    // 每個字串 2 秒
+    if (curStr) {
+      let temp = [];
+      let isMinus = false;
+      for (let j = 0; j < curStr.length; j++) {
+        let delayTime = (VocabularyTime / (curStr.length * 2)) * (j + 1);
+        let basicDelay = VocabularyTime / 2;
+        setTimeout(() => {
+          temp.push(curStr[j]);
+          console.log(temp.join(""));
+        }, delayTime); // 字串越長顯示越快, *2 原因是要把 minus 時間也算進去
+        setTimeout(() => {
+          temp.pop();
+          console.log(temp.join(""));
+        }, basicDelay + delayTime); // VocabularyTime / 2 = delay time， 要在所有字串加完才顯示
+      }
+    }
+  }, VocabularyTime * i);
+}
+
+// 創造 wave, createWave(3, 100) 會創造三波 wave, wave 高會達到 [3,6,9] 並隨之遞減,並以 100ms 輸出一次當前 wave
+function createWave(wave, ms) {
+  var arr = [];
+  for (let i = 0; i < wave; i++) {
+    let height = wave * (i + 1); // [3, 6, 9]
+    setTimeout(() => {
+      for (let j = 0; j < height; j++) {
+        // [3, 6, 9]
+        let totalTime = height * 2 * ms; // * 2 是把 pop 時間也算進去
+        let delayTime = ms * (j + 1);
+        let basicDelay = totalTime / 2;
+        setTimeout(() => {
+          arr.push("1");
+          console.log(arr.join(""));
+        }, delayTime);
+        setTimeout(() => {
+          arr.pop();
+          console.log(arr.join(""));
+        }, basicDelay + delayTime);
+      }
+    }, height * ms * i);
+  }
+}
+
+createWave(3, 100);
+```
