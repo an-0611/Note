@@ -1,3 +1,20 @@
+### Hoist with var & let
+
+```javascript
+function hoistWithVarLet() {
+  if (true) {
+    // console.log(V) // V = undefined, var hoisted, got var V = undefined (only hoist variable, will not hoist value);
+    // console.log(v) // referencError, can't access 'v' before initialization
+    var V = 1;
+    let v = 2;
+  }
+  console.log(V); // V = 1,                      var is 'function scope'
+  console.log(v); // referencError(not defined), let is 'block    scope', in this case only can use it in "if" block.
+}
+
+hoistWithVarLet();
+```
+
 ### Memoize
 
 ```javascript
@@ -88,6 +105,7 @@ console.log(currySum(1)(2, 3)(4)); // 10
 ### Reduce
 
 ```javascript
+// solution1
 function myReduce(callback, initialValue) {
   let result = initialValue;
   for (let i = 0; i < this.length; i++) {
@@ -101,6 +119,31 @@ Array.prototype.myReduce = myReduce;
 var arr = [1, 2, 3, 4, 5];
 var callback = (acc, cur) => acc + cur;
 arr.myReduce(callback, 5); // 20
+
+// solution2 (more strict, consideration with not given initial value & arrow function)
+Array.prototype.reduce2 = function (callback, init, ctx) {
+  if (typeof callback !== "function") throw "callback should be function!";
+  var initVal = typeof init == "undefined" ? this[0] : init;
+  var startI = init ? 0 : 1;
+  for (let i = startI; i < this.length; i++) {
+    initVal = callback.call(ctx, initVal, this[i]);
+  }
+  return initVal;
+};
+
+var arr = [1, 2, 3];
+arr.reduce2((acc, cur) => acc + cur);
+
+var arr = [3, 4, 5];
+var magnification = {
+  value: 5,
+};
+var callback = function (acc, cur) {
+  console.log(acc, cur);
+  return acc + cur * this.value;
+};
+
+arr.reduce2(callback, 0, magnification);
 ```
 
 ### Compose
@@ -176,21 +219,30 @@ var double = (a) => 2 * a;
 compose(double, multiply)(5, 3); // 30
 ```
 
-### Debounce
+### Debounce (距離上次執行經過 x 秒才能執行一次, 執行時間會根據冷卻期間是否重複執行而刷新冷卻時長)
 
 ```javascript
 var debounce = function (fn, t) {
   let timeout;
+  let isFirst = true;
   return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
+    if (isFirst) {
       fn(...args);
-    }, t);
+      isFirst = false;
+    } else {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        fn(...args);
+      }, t);
+    }
   };
 };
+
+var a = debounce(console.log, 1000);
+a(1); //
 ```
 
-### Throttle
+### Throttle (每 x 秒最多執行一次)
 
 ```javascript
 function throttle(fn, delay) {
@@ -364,6 +416,10 @@ settimeout(console.log, 2000, "11");
 
 ### Apply bind call
 
+```javascript
+注意 bind 綁定 this 後, 即便再用 bind 也無法再次更換 this, bind() 屬於 hard binding
+```
+
 ### This
 
 ```javascript
@@ -407,6 +463,71 @@ var e = () => b.getVal(); // this = b, // val = 2,
 箭頭函式沒有自己的 this，它的 this 是繼承自包含它的最近的非箭頭函式的 this 值。
 因此，在箭頭函式內無法使用 call、apply、bind 等方法來改變 this 的指向。
 箭頭函式的 this 是靜態的，指向該箭頭函式所在的作用域的 this，一旦綁定就無法再被更改。
+
+限制：
+1. 沒有自己的 this 值，箭頭函數的 this 是在它被定義的時候綁定的，而不是在它被呼叫的時候綁定。
+2. 無法使用 arguments 變數，取而代之的是使用剩餘參數 (...)。
+3. 不能用作構造函數，因為沒有自己的 this。
+4. 不能使用 yield 關鍵字，因為箭頭函數不是生成器函數。
+5. 無法使用 call、apply、bind 方法來改變 this 指向。
+6. 箭頭函數內部的 arguments 對象是指向外部作用域中的 arguments 對象，而不是箭頭函數本身的 arguments 對象。
+7. 無法使用 new 關鍵字來創建實例。
+
+e.g. (參考上面 arguments 限制)
+// 1
+var a = (...args) => console.log(args)
+a(1,2,3) // [1,2,3]
+// 2
+function a() { console.log(arguments) }
+a(1,2,3) // Arguments[1,2,3.....]
+// 3
+var a = () => console.log(arguments);
+a(1,2,3) // arguments not defined
+// 4
+function b() {
+    var a = () => console.log(arguments);
+    a(); // Arguments[1,2,3.....], 指向外部 b 的 arguments 對象
+}
+b(1,2,3);
+
+var profile = {
+    firstName: '',
+    lastName: '',
+    setName: function(name) {
+      console.log(this) // this = profile
+      let splitName = function(n) {
+          console.log(this) // window; 在 splitName 函數中，this 的值是由函數的調用方式所決定的，而不是由它在哪裡聲明的決定的。
+          // 當 splitName 函數在 setName 函數中被調用時，它是作為簡單的函數調用被調用的，因此 this 的值被設置為全局對象，也就是 window。
+          // 如果你想讓 splitName 函數中的 this 指向 profile 對象，可以使用 bind、call 或 apply 方法來顯式地指定 this 的值。
+          let nameArray = n.split(' ');
+          this.firstName = nameArray[0];
+          this.lastName = nameArray[1];
+      } // .bind(this), 將 splitName this 由 window 指向與 setName 相同的 profile 即可
+      splitName(name);
+    },
+    // setName: function(name) {
+    //     let splitName = (n) => {
+    //         console.log(this) // this = profile, 找上文最近 this, 上文 this = 一般 fn,
+    //         // this 以呼叫對象是誰做為 this 代表
+    //         let nameArray = n.split(' ');
+    //         this.firstName = nameArray[0];
+    //         this.lastName = nameArray[1];
+    //     }
+    //     splitName(name);
+    // },
+    // setName: (name) => {
+    //     let splitName = (n) => {
+    //         console.log(this) // this = window, 找上文最近 this, 上文又是 arrow fn, 繼續往上, 找到 window
+    //         let nameArray = n.split(' ');
+    //         this.firstName = nameArray[0];
+    //         this.lastName = nameArray[1];
+    //     }
+    //     splitName(name);
+    // }
+}
+
+profile.setName('John Doe');
+console.log(profile.firstName);
 ```
 
 ### Implement Array map function (Using reduce)
@@ -463,8 +584,6 @@ NaN 與任何值的比較都返回 false，包括 NaN > 1、NaN < 1、NaN == 1�
 因為 NaN 的這些特性，它通常被用來表示一個無效的或者未知的數值，比如在一些數學計算中可能出現錯誤導致結果為 NaN，或者用戶輸入錯誤的數據導致解析失敗也會返回 NaN。因此，在編寫 JavaScript 程序時，需要注意對 NaN 的處理。
 ```
 
-### Class && super (子類繼承父類的屬性和方法, ex: extend 的子類也需要 name 這個屬性)
-
 ### Prototype (構造函式的屬性, 可讓所有 instance 共用函式), **proto** // 能使用繼承來的哪些屬性
 
 ```javascript
@@ -486,9 +605,171 @@ console.log(Object.getPrototypeOf(person1) === Person.prototype); // true, 所�
 console.log(person1.prototype); // undefined, 宣告的 person1 為 instance, 非一個建構函式 不具備 prototype 屬性
 ```
 
-## Implicit conversion rules
+### Class and super() (子類繼承父類的屬性和方法, ex: extend 的子類也需要 name 這個屬性)
+
+在 JavaScript 的 class 中，super() 是一個關鍵字，它的作用是調用父類別的建構子，也可以在子類別的方法中調用父類別的同名方法。
+
+當子類別的建構子函數中沒有使用 super() 呼叫父類別的建構子，那麼就無法獲得父類別中定義的實例屬性和方法，也無法透過 this 存取到父類別中的屬性和方法。如果在子類別的建構子中使用了 this 來定義一些實例屬性或方法，那麼這些屬性和方法就只能在子類別中被使用，無法在父類別中被訪問或使用。
+
+在呼叫 super() 的時候，可以傳遞任意參數到父類別的建構子中，這些參數將會作為父類別建構子的引數。如果子類別中沒有定義建構子，那麼 JavaScript 引擎會自動生成一個空的建構子，相當於 constructor() {}，這時在子類別中也可以直接使用 super() 調用父類別的建構子。
+
+需要注意的是，super() 必須在使用 this 之前被呼叫，否則就會報錯。在 ES6 中，繼承是使用 class 和 extends 來實現的，使用 super() 來呼叫父類別的建構子可以繼承父類別中的屬性和方法，使得子類別可以擁有父類別的所有特性。
+
+```javascript
+// case 1 以 arrow fn 宣告 showA & showB 差別
+class A {
+  constructor() {
+    this.value = 100;
+    console.log(this);
+  }
+  showA() {
+    // 定義在 prototype 上, this 指向 A classes, 若今天想要被繼承用此方法
+    console.log(this);
+  }
+  showB = () => {
+    // 相當於 property showB = undefined, 在被賦值變成 arrow function
+    // 定義在被創建出來的實例上, 如果不是想被繼承且想讓外部某個變數 = new A().showB 則不用再次綁定 this, 同時不會被覆蓋, 各有不同優點
+    console.log(this);
+  };
+}
+
+// function B() { 建構函式的 this.show 也是綁在實例上 要繼承一樣要綁在 如上面 showB = () => {}
+//     this.show = function() {}
+// }
+
+class B extends A {
+  constructor(value) {
+    super(value);
+    super.showA(); // (O) // 定義在 prototype 上 可繼承
+    // super.showB(); // (X) // 定義在實例上, 效果跟 showA 相同但僅 實例 自己使用, 不能調用父層的 showB
+  }
+}
+
+var a = new A(); // A {value: 100, showB: ƒ} 但一樣可以使用 showA
+var b = new B(); // B {value: 100, showB: ƒ} 但一樣可以使用 showA
+
+// case 2, 將 prototype showA 綁定到 property 上
+class A {
+  constructor() {
+    this.value = 100;
+    this.showA = this.showA.bind(this); // 與 case 1 些微不同, 確認 bind(this) 會不會造成 this 綁死在 A 上
+    // !!! 將 prototype 註冊到 property 上, 可以避免外部某變數套用其方法時 this 失去上下文導致 this 變成 undefined,
+    // 也能夠作為 子class中 直接 super 後用 this.showA 調用, 而不用 super.showA()調用; // Q: 這樣 this 會不會綁死在Ａ上 (不會, this 會依照實例做綁定)
+    // 如 var a = new A(); var c = a.showA; 執行 c() 時 this 就不會 undefined
+  }
+  showA() {
+    console.log(this);
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+    this.value = 200;
+    this.showA();
+    super.showA(); // 與上面 this.showA() 功能相同
+  }
+}
+
+var a = new A(); // A {value: 100, showA: ƒ}
+var b = new B(); // B {value: 200, showA: ƒ}
+
+// case 3 為什麼一樣採用 prototype, 但 class showA (this = undefined), 而建構函式 showA (this 指向 window),
+!!!! conclusion: 定義方式不同 下面例子中(指普通函式不討論 arrow fn), class showA 定義方法為 "實例方法", function B showA 為 "原型方法"
+!!!!             class 和 建構函式 一樣都是 function, 但 class 並不會註冊到 window 上("局部變數"), 而 function 會 ("全局變數"),
+!!!!             所以 class showA 的 this 抓全局抓不到 window 所以 this == undefined, function 則可以抓到 this = window
+
+// 在 class A 中，showA 方法是作為該類的實例方法定義的，當它被單獨引用時，this 指向 undefined。這是因為單獨引用時，方法與類的實例沒有關聯。
+// 而在 function B 的原型中定義 showA 方法，當它被單獨引用時，this 指向 window。這是因為 showA 方法是在 B.prototype 上定義的，當被單獨引用時，this 會指向全局對象 window。
+// 簡而言之，this 的指向取決於函數是如何被調用的。當函數作為對象的方法調用時，this 指向該對象；當函數作為獨立的函數調用時，this 指向全局對象（在瀏覽器中是 window）。
+class A {
+  constructor() {
+    this.value = 100;
+    // this.showA = this.showA.bind(this); // 一樣可以綁定 this 解決, 但主要是判別 this = undefined || window 的差別
+  }
+  showA() { // showA 作為該類的 "實例方法" 定義，當它被單獨引用時，this 指向 undefined。 這是因為單獨引用時，方法與 class 的實例沒有關聯。
+    console.log(this);
+  }
+}
+
+function B() {
+  // this.showA = function () {
+  //   console.log(this);
+  // };
+}
+B.prototype.showA = function() { // showA 作為原型中定義 showA 方法 ("稱原型方法")，當它被單獨引用時，this 指向 window。
+  console.log(this);
+}
+
+var a = new A();
+var b = new B();
+
+var c = a.showA;
+console.log("c(): ", c()); // this = undefined
+
+var e = b.showA;
+console.log("e(): ", e()); // this = window
+```
+
+### Diff between declare func in constructor func with using this.fn & return { fn }
+
+```javascript
+function A() {
+  this.value = 100;
+  this.show = function () {
+    // 這邊跟使用 arrow func 容易搞混 不管這邊是不是 arrow function 只要不是在 return 內註冊就都能訪問其他 properties
+    // this = A {show: ƒ}, when create object 'this' will point to the "A instance" that can use all properties in A, this.value = 100
+    console.log(this);
+    console.log(this.value);
+  };
+  return {
+    show: function () {
+      // register in global variables, 'this' point to the window, can't access all perperties in A
+      console.log(this);
+      console.log(this.value);
+    },
+  };
+}
+
+var a = new A();
+a.show();
+```
+
+### Implicit conversion rules
 
 https://javascript.plainenglish.io/interviewer-can-a-1-a-2-a-3-ever-evaluate-to-true-in-javascript-d2329e693cde
+
+### Garbage collection & Memory leak
+
+JavaScript 的垃圾回收機制主要是基於自動內存管理的概念。
+JavaScript 引擎會跟踪內存中的所有對象，當一個對像不再被引用時，即它的引用計數為 0 時，這個對象就會被認為是垃圾。
+JavaScript 引擎會自動回收這部分內存，以便給其他對像或變量使用。這個過程被稱為垃圾回收。
+
+內存佔用過高可能會導致應用程序出現各種問題，比如緩慢或卡頓，甚至可能導致崩潰。
+當內存中的對象佔用的內存過多時，垃圾回收機制會嘗試回收這些內存。
+在 JavaScript 中，當一個對像不再被引用時，它佔用的內存就可以被回收。
+
+然而，如果程序中存在無法訪問的對象（即沒有被引用到但佔用著內存），垃圾回收機制就無法回收這部分內存，從而導致內存洩漏（memory leak）。
+內存洩漏通常會導致應用程序的內存佔用越來越高，最終可能會導致程序崩潰。
+
+內存洩漏的原因可能有多種，比如：
+
+被遺忘的定時器或回調函數。
+意外創建了全局變量。
+持續向數組或對像中添加元素，導致數組或對像不斷增大，佔用越來越多的內存。
+持續創建新的對像或實例，但沒有及時釋放它們佔用的內存。
+
+避免 memory leak
+
+- 避免在全局作用域聲明變數和函數，這樣容易導致變數無法被回收
+- 盡量減少使用匿名函數，因為這樣的函數會產生額外的作用域
+- 盡量避免對 DOM 進行直接操作，因為 DOM 元素通常是很占用記憶體的
+- 盡量避免產生循環引用，例如將一個對象設為自己的屬性值
+- 及時釋放不需要的對象和變量 (ex: 數組和對象)。
+- 使用閉包和模塊化編程來避免創建不必要的全局變量。 (如果使用閉包但在內部直接使用變數名稱不透過 var let const 宣告 會在全域註冊一個全域變數, 也可能導致 memory leak)
+- 盡可能複用已有的對像或實例，避免頻繁創建新的對像或實例。
+
+p.s. 若移除註冊 addEventListener 的 dom 元素被移除 註冊事件會一起被移除且回收
 
 ### Compare json
 
