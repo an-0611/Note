@@ -783,6 +783,156 @@ p.s. 若移除註冊 addEventListener 的 dom 元素被移除 註冊事件會一
 
 ### Event loop 詳解 (含 heap 如何儲存 primitive & object type, stack, queue)
 
+### Service worker
+
+(3) Service Worker 是一個瀏覽器 API，用於在 Web 應用程序和瀏覽器之間建立一個獨立的代理層。
+它可以在瀏覽器和網絡之間建立一個中間層，可以緩存應用程序所需的資源，並在網絡不可用時提供離線體驗。
+Service Worker 可以讓 Web 應用程序實現像原生應用程序一樣的離線瀏覽體驗，可以提高應用程序的性能和可用性。
+
+https://ithelp.ithome.com.tw/articles/10187529
+
+### Vue & React API, compare, diff
+
+| 項目 |      Vue       |                          React                           |                        Replenish                        |
+| :--: | :------------: | :------------------------------------------------------: | :-----------------------------------------------------: |
+|      | ref, reactive  |                          useRef                          |
+|      |    computed    |                   useMemo, useCallback                   |
+|      |    mounted     |                    componentDidMount                     |                   組件掛載後立即調用                    |
+|      |    updated     |                    componentDidUpdate                    |                在 Vue 組件更新後立即調用                |
+|      |   unmounted    |                   componentWillUnmount                   |
+|      | no mapping api | React.memo, shouldComponentUpdate(nextProps, nextStates) | React.memo 是 shallow compare, 如果傳物件一樣會觸發渲染 |
+|      |                |                                                          |
+|      |                |                                                          |
+
+補充：
+
+- React & Vue 都使用 Virtual DOM(以下縮寫為 V-DOM) 以及 diff 算法,
+  但有稍微不同：
+  Vue 的 V-DOM 是透過 Template Compiler, 即生成的 V-DOM 是由 Template Compiler 產生, (即 V-DOM 包含編譯後的模板)
+  因為 Template Compiler 通常會連帶生成一些靜態節點 (static nodes, 可理解為 Template Compiler 將一些 靜態文本 或 不受外部影響的狀態樣式視為靜態節點)
+  這些節點更新時不需要透過 diff 比較, 相對來說是一種優化 V-DOM 的手段.
+
+React 則是拿原始資料生成 V-DOM, diff 比較上也是直接拿原始資料做比較,所以兩者在緩存和實作上就會略有不同
+
+- Vue lifecycle  
+  beforeCreate：在 Vue 實例 創建之 前 觸發，此時還未初始化 data 和 methods。
+  created：在 Vue 實例創建完成 後 觸發，此時已經初始化了 data 和 methods。 // (Vue3 的 setup 相當於 beforeCreate + created 的融合)
+  beforeMount：在 Vue 實例掛載到 DOM 之前觸發，此時模板已編譯完成，但尚未渲染到 DOM 中。
+  mounted：在 Vue 實例掛載到 DOM 之後觸發，此時模板已編譯完成且已渲染到 DOM 中。
+
+##### useMemo (like computed) 主要用在當元件重新渲染時，減少在元件中複雜的程式重複執行。
+
+```jsx
+// useMemo 會在渲染時計算一個 memoized 值，只有當其中一個依賴值有所更改
+// 才會重新計算 memoized 值，避免不必要的重複計算。
+// 一般適用於計算成本較高的值或有較多計算運算的值。
+import React, { useMemo } from "react";
+
+function MyComponent({ a, b }) {
+  const memoizedValue = useMemo(() => {
+    // 計算成本較高的值或有較多計算運算的值
+    return a * b;
+  }, [a, b]);
+
+  return <div>{memoizedValue}</div>;
+}
+```
+
+##### useCallback
+
+```jsx
+// useCallback 與 useMemo 相似，只有當其中一個依賴值有所更改時才會重新計算 callback，避免不必要的重複計算。
+// 一般適用於 callback function 較複雜或傳入的 props 較多的情況。
+
+- useCallback 可與 React.memo 一起使用， memo 用來偵測 props 有沒有修改 (use shallow compare 傳入 prop = object 時必渲染)，減少不必要渲染；
+  useCallback 則讓 props 的 Object 能夠在父元件重新渲染時，不重新分配記憶體位址，讓 memo 不會因為重新分配記憶體位址造成渲染。
+
+import React, { useCallback } from "react";
+
+function MyComponent({ onClick }) {
+  const handleClick = useCallback(() => {
+    // 如放入複雜的 callback function
+    onClick("some data");
+  }, [onClick]);
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+```
+
+##### useRef
+
+```jsx
+// useRef 會返回一個可變的 ref 物件，可用於保存任何可以改變的值，並且在重新渲染時保持該值的穩定。
+
+import React, { useRef } from "react";
+
+function MyComponent() {
+  const inputRef = useRef(null);
+
+  function handleButtonClick() {
+    inputRef.current.focus();
+  }
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleButtonClick}>Focus input</button>
+    </div>
+  );
+}
+```
+
+immetable.js 是 Facebook 开发的一个 js 库，可以提高对象的比较性能，像之前所说的 pureComponent 只能对对象进行浅比较，,对于对象的数据类型,却束手无策,所以我们可以用 immetable.js 配合
+shouldComponentUpdate 或者 react.memo 来使用。immutable 中 我们用 react-redux 来简单举一个例子，如下所示 数据都已经被 immetable.js 处理。
+
+<!-- React.memo 是用 shallowly compare 的方法確認 props 的值是否一樣， shallowly compare 在 props 是 Number 或 String 比較的是數值，當 props 是 Object 時，比較的是記憶體位置 (reference)。
+
+因此，當父元件重新渲染時，在父元件宣告的 Object 都會被重新分配記憶體位址，所以想要利用 React.memo 防止重新渲染就會失效。
+
+React.memo(Component, (prevProps, nextProps) => { // compare values as you want }); -->
+
+##### vue3 proxy
+
+```javascript
+var an = {
+  age: 28,
+};
+
+var pAn = new Proxy(an, {
+  get(target, key, receiver) {
+    return Reflect.get(...arguments); // = return target[key];
+  },
+  set(target, key, value) {
+    return Reflect.set(target, key, value); // return true
+  },
+});
+
+pAn.age = 29;
+```
+
+// receiver: 通常是 proxy 對象本身或者是它的原型對象, 在 get 攔截器中, 如果 receiver 參數被傳入，則可使用 receiver 來修改屬性讀取操作的上下文。
+可以把調用對象當作 target 參數，而不是原始 Proxy 構造的對象。
+
+##### vue2 object.defineProperty
+
+##### react reconciliation
+
+syntax: template, jsx
+data flow: 2 way, 1way(父->子)
+reactive: Dependency Tracking, vnode
+
+Vue 將虛擬 DOM 的概念與模板語法相結合，可以更直觀地進行模板開發。
+Vue 的模板語法在模板編譯成虛擬 DOM 之前，就已經將數據和模板進行了綁定，
+當數據發生變化時，Vue 會通過虛擬 DOM 來計算出需要更新的節點，再將這些節點進行更新。
+因此，Vue 也是一個基於虛擬 DOM 實現的響應式框架，但是它的響應式系統與 React 不同，Vue 使用了一個叫做“依賴追踪”的技術，
+通過收集組件的依賴關係，在數據變化時直接通知組件進行重新渲染，從而實現響應式更新。
+
+React reconciliation 是 React 的一個核心算法，用於比對 Virtual DOM 中的新舊節點，決定哪些部分需要更新並且如何更新。當 React 組件的狀態或屬性發生改變時，React 會根據新的狀態和屬性計算出新的 Virtual DOM 樹，並通過與上一次渲染的 Virtual DOM 樹進行比較，找出需要更新的節點，然後進行最小化的更新操作，最終反映到實際的 DOM 上。
+
+Vue 和 React 都使用 diff 算法來比對 Virtual DOM，找出需要更新的節點，但是兩者的實現方式略有不同。
+Vue 在 diff 時會對比新舊 VNode 的 tag 和 key 屬性，而 React 則是比較 VNode 的 type 屬性以及 key 屬性。
+此外，Vue 還有一個優化手段叫做“靜態提升”，可以將一些不會變化的節點在 diff 過程中排除，以進一步提升性能。
+
 ### window opener & session storage
 
 ```
@@ -805,7 +955,28 @@ sessionStorage 仍然可以在新開的頁面中訪問到，前提是這個頁�
 
 ### AST
 
+https://juejin.cn/post/6844903960650711054
+https://github.com/babel/babel/tree/master/packages/babel-core/src
+https://www.babeljs.cn/docs/babel-core
+
 ### Service worker
+
+Service Worker 是一種 JavaScript Worker 的，""獨立運行在主瀏覽器進程外""，負責處理 Web 應用的網絡請求和緩存資源。
+
+Service Worker 可以在 Web 應用的生命週期中被註冊、安裝和啟用，當 Service Worker 成功安裝並啟用後，就會開始攔截網絡請求，
+並且可以透過緩存來加快網頁的加載速度，甚至可以離線使用 Web 應用。Service Worker 的另一個優點是它可以在後台執行，即使使用者關閉了網頁，也能夠持續運行。
+
+以下是 Service Worker 的一些主要作用：
+
+- 網路請求攔截：Service Worker 可以攔截網頁中的網路請求，並對這些請求進行處理。例如，Service Worker 可以根據請求的網址、網址參數或者請求方法來判斷是否要從緩存中獲取資源，或者重新向網絡發送請求獲取最新資源。
+
+- 資源緩存：Service Worker 可以將網頁中常用的資源（例如 HTML、CSS、JavaScript 和圖像等）緩存到本地，這樣就可以加快網頁的加載速度。在使用 Service Worker 的情況下，即使網絡斷開，用戶也可以通過緩存資源繼續使用 Web 應用。
+
+- 背景同步：Service Worker 可以在後台執行，並且可以與網頁進程通信，從而實現後台同步資料、更新緩存等功能。例如，當用戶處於離線狀態時，Service Worker 可以在網絡恢復連接後同步用戶資料。
+
+- 推送通知：Service Worker 可以與推送通知 API 搭配使用，實現 Web 應用的推送通知功能。當用戶訂閱了推送通知後，Service Worker 就可以接收到推送通知，並在用戶關閉網頁或者離線的情況下向用戶發送通知。
+
+當使用者關閉網頁後，網頁中的 JavaScript 代碼通常會停止運行。但是 Service Worker 可以在後台持續運行，這意味著即使使用者關閉了網頁，Service Worker 仍然可以持續運行。這樣可以讓 Service Worker 執行一些非常有用的任務，例如在後台更新快取，處理推送通知等。這對於提高網站的性能和可靠性非常有幫助。
 
 ### Design Pattern
 
