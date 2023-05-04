@@ -771,11 +771,48 @@ JavaScript 引擎會自動回收這部分內存，以便給其他對像或變量
 
 p.s. 若移除註冊 addEventListener 的 dom 元素被移除 註冊事件會一起被移除且回收
 
-### Compare json
-
 ### Xss
 
-### Csrf
+指攻擊者通過注入惡意腳本代碼，使之在受害者的瀏覽器上執行。攻擊者可以在網頁上顯示自己的內容，或者竊取受害者的敏感資訊，如 Cookie 等。XSS 攻擊常見的方式是在網站表單、留言板等地方輸入 JavaScript 代碼，攻擊者的代碼隨後被存儲在網站的資料庫中，當其他使用者訪問該網站時，攻擊者的代碼就會在使用者的瀏覽器上執行。
+
+https://medium.com/hannah-lin/%E5%B9%BC%E5%B9%BC%E7%8F%AD%E4%B9%9F%E8%83%BD%E6%87%82%E7%9A%84-owasp-top-10-692764c51f61#dd52
+https://medium.com/hannah-lin/%E5%BE%9E%E6%94%BB%E6%93%8A%E8%87%AA%E5%B7%B1%E7%B6%B2%E7%AB%99%E5%AD%B8-xss-cross-site-scripting-%E5%8E%9F%E7%90%86%E7%AF%87-fec3d1864e42
+
+處理方法：
+
+Frontend:
+(1) 輸入驗證：對用戶輸入的數據進行驗證，過濾掉不合法的輸入，例如特殊符號等。
+
+(2) 輸出轉義：可使用 encodeURI，在顯示用戶輸入的數據時，對敏感字符（如 <, >, ", ', &）進行轉義，例如將 < 轉為 &lt;，> 轉為 &gt;，" 轉為 &quot;。
+
+(3) 在 React 和 Vue 等前端框架中，可以使用相應的內置函數來實現輸出轉義。在 React 中，可以使用 dangerouslySetInnerHTML 屬性來插入原始 HTML，但是應該儘量避免使用它，而是使用 React 提供的 createElement 或 JSX 語法生成元素，因為它們會自動進行 HTML 轉義。在 Vue 中，可以使用 v-html 指令來插入原始 HTML，但同樣應該儘量避免使用它，而是使用 {{ }} 語法或 v-text 指令來顯示文本。
+
+Backend:
+(1) HttpOnly Cookie：在服務端設置 HttpOnly 屬性，使得 Cookie 無法通過 JavaScript 訪問，防止攻擊者竊取用戶的 Cookie。
+(2) Content Security Policy（CSP）：在 HTTP Header 中添加 CSP，限制網頁載入的資源，限制腳本的執行。
+(3) 使用 HTTPS：使用 HTTPS 協議加密數據傳輸，從而防止數據被攔截和竊取。
+
+實際範例：
+
+### Csrf (偽造身份發送請求)
+
+在不同的 domain 底下卻能夠偽造出「使用者本人發出的 request」。
+因為瀏覽器的機制，你只要發送 request 給某個網域，就會把關聯的 cookie 一起帶上去。
+如果使用者是登入狀態，那這個 request 就理所當然包含了他的資訊（例如說 session id），這 request 看起來就像是使用者本人發出的。
+
+指攻擊者通過偽造請求，使受害者在不知情的情況下執行一些操作，如修改密碼、刪除資訊等。
+攻擊者通常會通過社交等手段引誘受害者點擊連結或打開惡意網站，進而實現 CSRF 攻擊。
+舉例來說，攻擊者可以在自己的網站上放置一個圖片標籤，圖片 URL 指向受害者要攻擊的網站，並且在圖片 URL 中携帶了修改密碼的請求。
+當受害者訪問攻擊者的網站時，攻擊者的請求就會被發送到受害者的網站上，進而修改受害者的密碼。
+
+處理方法：
+
+(1) 在 HTTP 標頭中加入 token：當用戶訪問網站時，可以生成一個隨機的 token，並在後端和前端都保存這個 token。當用戶提交表單時，將 token 作為表單數據的一部分一同提交到後端。後端可以檢查表單中的 token 是否與保存在後端的 token 相同。如果不同，則證明這是一個 CSRF 攻擊。
+
+backend:
+(1) 驗證請求來源：可以在後端檢查 HTTP Referer 標頭，檢查請求來源是否為正確的網域。然而，這種方式容易受到偽造 Referer 的攻擊，因此不是非常可靠。
+
+(2) 使用同源策略：由於 CSRF 攻擊利用的是網站的 cookie，如果網站不允許跨域訪問，那麼攻擊者就無法通過跨域請求來利用網站的 cookie。因此，使用同源策略可以有效避免 CSRF 攻擊。
 
 ### cors Access-Control-Allow-Origin
 
