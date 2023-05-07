@@ -818,6 +818,57 @@ backend:
 
 ### Event bubble
 
+### Mock task queue
+
+```javascript
+let timer = null;
+let queue = [];
+let noExecutedQueue = [];
+
+function printQueue() {
+  if (queue.length === 0) {
+    clearInterval(timer);
+    timer = null;
+    return;
+  }
+
+  const value = queue.shift();
+  console.log(value);
+}
+
+const QueueTask = {
+  start: function () {
+    if (timer === null) {
+      timer = setInterval(printQueue, 3000);
+    }
+  },
+  push: function (val) {
+    if (noExecutedQueue.length) {
+      queue = noExecutedQueue.slice();
+      noExecutedQueue = [];
+    }
+    queue.push(val);
+    this.start();
+  },
+  stop: function () {
+    clearInterval(timer);
+    timer = null;
+    noExecutedQueue = queue.slice();
+    queue = [];
+  },
+};
+
+// QueueTask.start();
+QueueTask.push(1);
+QueueTask.push(2);
+QueueTask.push(3);
+QueueTask.push(4);
+QueueTask.push(5);
+
+// QueueTask.stop();
+// QueueTask.push(6);
+```
+
 ### Event loop 詳解 (含 heap 如何儲存 primitive & object type, stack, queue)
 
 ### Service worker
