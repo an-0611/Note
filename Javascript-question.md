@@ -818,6 +818,32 @@ backend:
 
 ### Event bubble
 
+```javascript
+
+在事件中 event propagation 可分為三個階段：
+- Capturing Phase：事件由外而內傳遞到被觸發事件的元素。
+- Target Phase：事件抵達被觸發事件的元素。
+- Bubbling Phase：事件從該元素透過冒泡從內而外傳遞。
+
+target.addEventListener(event, handler, true);
+// 當第三個參數為 true 時，表示使用事件捕獲方式(Capturing, 外而內)來監聽事件；
+// 當第三個參數為 false 或省略時，表示使用事件冒泡方式(Bubbling, 內而外)來監聽事件。
+
+e.target: 指的是觸發事件的那個元素，也就是事件最初發生的那個元素，即使事件冒泡到其他元素，e.target 也不會改變。
+e.currentTarget: 則指的是當前正在處理事件的元素，即當前正在被事件處理程序處理的那個元素。當事件冒泡到父元素時，e.currentTarget 會改變為當前正在處理事件的父元素，
+                 而 e.target 仍然指向最初觸發事件的那個元素。
+                簡單來說，e.target 是事件最初觸發的元素，而 e.currentTarget 是當前正在處理事件的元素。
+
+event.eventPhase： 可以取得目前事件位於 event propagation 中的哪一個階段：
+{
+  1 : CAPTURING_PHASE
+  2 : AT_TARGET
+  3 : BUBBLING_PHASE
+}
+
+
+```
+
 ### Mock task queue
 
 ```javascript
