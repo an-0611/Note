@@ -1251,6 +1251,107 @@ Vue 和 React 都使用 diff 算法來比對 Virtual DOM，找出需要更新的
 Vue 在 diff 時會對比新舊 VNode 的 tag 和 key 屬性，而 React 則是比較 VNode 的 type 屬性以及 key 屬性。
 此外，Vue 還有一個優化手段叫做“靜態提升”，可以將一些不會變化的節點在 diff 過程中排除，以進一步提升性能。
 
+### Redux thunk
+
+<!-- https://pjchender.dev/react/redux-thunk/ -->
+
+thunk 是一個 function 讓我們能夠處理 async 的操作, thunk function 是能接受 dispatch 和 getState 作為參數的函式,
+
+將 action creators 回傳的物件，改成回傳一個具備 (dispatch, getState) 功能的 async function (即便成 thunk function)，可以在此函式中撰寫不同的 action 來更好地控制異步操作的流程。
+
+ex:
+
+```javascript
+// action creator, fetchUser 為一個 thunk function 而非 action 物件,
+// 原本 store.dispatch() 中的 action creator 物件集中在此 thunk function 內部
+// 故可以根據異步操作有效分離各種不同 action creator 物件, 如 (1)(2)(3)
+const fetchUser = (userId) => {
+  return (dispatch) => {
+    dispatch({ type: "FETCH_USER_REQUEST" }); // (1)
+    fetch(`https://api.example.com/users/${userId}`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        dispatch({ type: "FETCH_USER_SUCCESS", payload: data }); // (2)
+      })
+      .catch((error) => {
+        dispatch({ type: "FETCH_USER_FAILURE", payload: error.message }); // (3)
+      });
+  };
+};
+
+// 使用 action creator, 沒用 thunk 情況下為傳入一個 action 物件
+// ex: store.dispatch({ type: 'FETCH_USER_SUCCESS', payload: data });
+store.dispatch(fetchUser(123));
+```
+
+source code:
+
+```javascript
+function createThunkMiddleware(extraArgument) {
+  return ({ dispatch, getState }) =>
+    (next) =>
+    (action) => {
+      // action 就是透過 action creators 傳進來的東西， ex: var addTodo = (text) => ({ type: ADD_TODO, text })
+      // 在 redux-thunk 中會是 async function
+      if (typeof action === "function") {
+        // 回傳「執行後的 async function」
+        return action(dispatch, getState, extraArgument);
+      }
+      // 若傳入的 action 不是 function，則當成一般的 action 處理
+      return next(action);
+    };
+}
+
+const thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
+
+export default thunk;
+```
+
+### Redux saga
+
+Redux Saga 用於處理異步操作。幫助我們管理應用程序的 side effect，例如網絡請求、訂閱、定時器等等，使得異步流程變得更加容易管理、測試和維護。
+
+Redux Saga 使用 generator 函數和 yield 來創建非阻塞的異步流程，可以在 Redux 應用中撰寫可以取消的異步操作，使得應用的效率更高、性能也更好。
+
+```javascript
+P.S.
+take(actionType): 阻塞等待一個指定的action被dispatch，一旦有該類型的action被dispatch了，take會恢復執行，並且返回該action對象。可以看做是Redux中的 store.subscribe()，用於監聽特定的action的觸發，然後執行相應的邏輯。
+
+call(fn, ...args): 用於調用異步函數，返回一個被調用函數返回的 Promise 對象。一般情況下，用於調用返回 Promise 的異步函數，如 fetch 或者其他異步操作。
+
+put(action): 向 Redux Store 發送一個 Action 對象。相當於 Redux 中的 store.dispatch(action)，發起一個指定的action到Redux store 來更新state。put 函數是一個非阻塞函數，不會阻塞當前的生成器函數執行。
+
+takeLatest(actionType, saga, ...args) 也是監聽指定的 action，但不同於 take，它每次只處理最後一次被監聽的 action，並且如果在執行 saga 的過程中有新的 action 被監聽到，那麼之前正在執行的 saga 將會被取消。
+
+
+import { take, call, put, takeLatest } from 'redux-saga/effects';
+import { fetchUserSuccess, fetchUserFailure } from './actions';
+import { FETCH_USER_REQUEST } from './actionTypes';
+import { getUser } from './api';
+
+// generator function
+function* fetchUser(action) {
+  try {
+    // yield take('FETCH_USER_REQUEST'); // 若不使用 takeLatest 則可以用這種寫法
+    const user = yield call(getUser, action.payload);
+    // (3) 使用 call 來呼叫 getUser 這個 API，並使用 put 函式來 dispatch 一個成功或失敗的 action，以通知 Redux Store 中的狀態改變。
+    yield put(fetchUserSuccess(user));
+    // (4) 並使用 put 來 dispatch 一個成功或失敗的 action，以通知 Redux Store 中的state 改變
+  } catch (error) {
+    yield put(fetchUserFailure(error));
+  }
+}
+
+function* userSaga() { // (2) 此 Redux Saga 用來監聽 FETCH_USER_REQUEST 這個 Redux action, 此 action 觸發時執行 fetchUser 這個 generator function。
+  yield takeLatest(FETCH_USER_REQUEST, fetchUser);
+  // (5) takeLatest 有點不同於 take, 可以用來取消執行中的 generator function。
+  //     假設監聽到 5 次 FETCH_USER_REQUEST, 若前面 4 次 fetchUser 都被某個yield阻塞了或是執行到一半就又監聽到 FETCH_USER_REQUEST, 將會取消前一次的 fetchUser 並執行一個新的 fetchUser.
+}
+
+export default userSaga; // (1) 定義了一個 Redux Saga，名為 userSaga
+```
+
 ### window opener & session storage
 
 ```
