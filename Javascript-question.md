@@ -408,11 +408,182 @@ function settimeout(handler, ms, val) {
 settimeout(console.log, 2000, "11");
 ```
 
-### async await, yield \* generator
+### async await
 
-### Bfs
+async/await 是 JavaScript 中用來處理 Promise 物件的語法糖。
 
-### Dfs
+1. 主要目的是<mark>簡化 Promise 的使用</mark>，能更方便處理 Promise 物件所帶來的異步問題。
+2. 使用 async/await 可以<mark>讓代碼更易讀和維護，並且使錯誤處理更加直觀</mark>。當使用 await 等待 Promise 物件時，如果 Promise 物件被拒絕，異常將被拋出，可以通過 try-catch 語句進行捕獲和處理。
+
+3. 使用 async/await 的方式是<mark>將 async 關鍵字放在函數前面，表示該函數是一個異步函數。</mark>
+   在異步函數中，可<mark>使用 await 關鍵字等待一個 Promise 物件解析為結果</mark>。
+
+4. 需要注意<mark>在使用 async/await 時需要確保函數返回一個 Promise 物件</mark>，否則在使用時可能會發生意料之外的錯誤。
+
+ex：
+
+```javascript
+async function getData() {
+  const result = await fetch("/api/data");
+  const data = await result.json();
+  return data;
+}
+```
+
+在上面範例中，getData 函數是一個異步函數，其使用 await 等待 fetch 方法返回的 Promise 物件。
+當 Promise 物件被解析為結果時，該結果會被賦值給 result 變數。
+接著，該函數再次使用 await 等待 json 方法解析 Promise 物件中的內容。
+
+### yield \* generator
+
+Generator 函式為一個特殊函式，它可以暫停執行並返回一個 iterator 物件，這個 iterator 物件可以用來控制 generator 函式的執行，以更簡潔的方式來實現異步執行的需求。
+
+以 斐波那契數列 為例：
+
+```javascript
+var fibGenerator = function* () {
+  let a = 0;
+  let b = 1;
+  while (true) {
+    yield a;
+    [a, b] = [b, a + b];
+  }
+  // 當呼叫 next() 方法時，generator 函式會從上次的暫停點繼續執行，
+  // 如果需要產生更多的數列，就會再次回到 while (true) 循環
+};
+
+/**
+ * const gen = fibGenerator(); // gen 即為 iterator 物件, 可使用 next() 方法
+ * gen.next().value; // 0
+ * gen.next().value; // 1
+ */
+```
+
+在上面 generator 函式中，我們先宣告了兩個變數 a 和 b，分別代表斐波那契數列的前兩個數值。接著使用 while (true) 無限迴圈，表示這個 generator 函式可以持續產生數列中的下一個值。
+在每一輪迴圈中，先使用 yield 關鍵字將目前的 a 數值回傳，接著使用 ES6 的解構賦值語法 [a,b] = [b,a+b] 來更新下一個數值，以此方式不斷生成數列。
+
+使用此 generator 函式時，可以先宣告一個 gen 變數，並將 fibGenerator() 的回傳值賦值給它，這樣就可以得到一個 iterator 物件。
+接著<mark>使用 next() 方法，每次呼叫會讓 generator 函式執行到下一個 yield 關鍵字，並將其返回值包裝在 { value: xxx, done: true/false } 的物件中回傳，直到 done 為 true 時表示數列已生成完成。</mark>
+
+在 while (true) 中使用的是無窮迴圈是因為 generator 函式可以在需要時隨時回傳 iterator 物件，所以不需要知道迴圈什麼時候會結束。<mark>當使用者呼叫 next() 方法時，generator 函式會從上次的暫停點繼續執行</mark>，如果需要產生更多的數列，就會再次回到 while (true) 循環再開。
+
+### BFS (Breadth-First Search)
+
+廣度優先搜索，利用 queue 紀錄要搜尋的節點, 以及 visited 記錄已經訪問過的節點,
+利用 queue FIFO 來達到廣度優先. (範例在 graph.js 內)
+
+然後。這樣循環遍歷，直到 queue 為空為止。
+
+```javascript
+const bfs = (graph, start) => {
+  const queue = [start]; // (1) 將起點放入 queue 中，然後開始遍歷。
+  const visited = new Set();
+
+  while (queue.length > 0) {
+    const node = queue.shift(); // (2) 每次遍歷時，取出 queue 的頭部節點
+    visited.add(node); // (3) 將其訪問標記為已訪問
+    console.log(node);
+
+    for (const neighbor of graph[node]) {
+      // (4) 將其所有鄰居加入 queue 中 前提是沒有被訪問過
+      if (!visited.has(neighbor)) {
+        queue.push(neighbor);
+      }
+    }
+  }
+};
+```
+
+### Dfs (Depth-First Search)
+
+深度優先搜索，由起點往下探到葉節點 or 直到找到目標節點 or 無法前進為止，
+然後回溯到上一個節點繼續搜索。並利用 visited 記錄已經訪問過的節點。
+
+深度優先搜索，是一種遍歷或搜索數據結構（如 tree 或 graph）的算法。
+從起始頂點開始遍歷，盡可能深地搜索一個分支，直到搜索到底部，然後回溯到上一個節點，
+接著深度遍歷下一個分支。直到整個數據結構都被遍歷過。
+
+利用 stack 紀錄要搜尋的節點, 以及 visited 記錄已經訪問過的節點,
+利用 stack LIFO 來達到深度優先.
+
+非遞歸, stack 實現：
+
+```javascript
+function dfsIterative(graph, start) {
+  const visited = new Set();
+  const stack = [start]; // (1) 將起點放入 stack 中，然後開始遍歷。
+
+  while (stack.length > 0) {
+    const vertex = stack.pop(); // (2) 每次遍歷時，取出 stack 的尾部節點
+    if (!visited.has(vertex)) {
+      visited.add(vertex); // (3) 若節點沒有訪問過，將其訪問標記為已訪問
+      console.log(vertex);
+      for (let neighbor of graph[vertex]) {
+        stack.push(neighbor); // (4) 將其所有鄰居加入 stack 中, 利用 LIFO 繼續向下遍歷
+      }
+    }
+  }
+}
+
+const graph = {
+  1: [2, 3],
+  2: [4, 5],
+  3: [6, 7],
+  4: [],
+  5: [],
+  6: [],
+  7: [],
+};
+
+dfsIterative(graph, 1);
+```
+
+遞歸實現：
+
+```javascript
+const dfsRecursive = (graph, node, visited = new Set()) => {
+  visited.add(node);
+  console.log(node);
+
+  for (const neighbor of graph[node]) {
+    if (!visited.has(neighbor)) {
+      dfsRecursive(graph, neighbor, visited);
+    }
+  }
+};
+```
+
+以 dfs 遍歷 graph：
+
+```javascript
+function dfs(vertex, visited, graph) {
+  visited[vertex] = true; // 標記當前節點為已訪問
+  console.log(vertex); // 當前節點
+
+  for (let i = 0; i < graph[vertex].length; i++) {
+    const neighbor = graph[vertex][i];
+    if (!visited[neighbor]) {
+      // 如果相鄰節點沒有訪問過
+      dfs(neighbor, visited, graph); // 遞歸訪問相鄰節點
+    }
+  }
+}
+
+const graph = {
+  A: ["B", "C"],
+  B: ["A", "D", "E"],
+  C: ["A", "F"],
+  D: ["B"],
+  E: ["B", "F"],
+  F: ["C", "E"],
+};
+
+const visited = {};
+
+dfs("A", visited, graph); // 由 A 點開始遍歷
+```
+
+在例子中，我們從頂點 A 開始遍歷 graph。我們使用一個 visited 對象來跟踪已經訪問過的頂點。我們遞歸地遍歷每個未訪問的相鄰頂點，直到找到底部為止。
 
 ### Apply bind call
 
@@ -814,7 +985,40 @@ backend:
 
 (2) 使用同源策略：由於 CSRF 攻擊利用的是網站的 cookie，如果網站不允許跨域訪問，那麼攻擊者就無法通過跨域請求來利用網站的 cookie。因此，使用同源策略可以有效避免 CSRF 攻擊。
 
-### cors Access-Control-Allow-Origin
+### Cors (Cross-Origin Resource Sharing)
+
+CORS (Cross-Origin Resource Sharing) 是瀏覽器的一個安全特性，
+<mark>限制在網頁中使用 JavaScript 跨域請求其他網域的資源（例如圖片、字型、腳本、API）</mark>，以避免潛在的安全風險。當瀏覽器的跨域請求被阻擋時，會拋出一個 CORS 錯誤。
+
+CORS 限制跨域請求的條件包括：
+
+1. 協定不同（例如 http 請求 https）
+2. 域名不同（例如 www.example.com 請求 api.example.com）
+3. 端口不同（例如 example.com:3000 請求 example.com:4000）
+   瀏覽器會透過發送 OPTIONS 請求詢問目標伺服器是否支援跨域請求，
+   如果支援，瀏覽器就會發送真正的跨域請求，否則會拋出一個 CORS 錯誤。
+
+解決 CORS 的方法：
+
+1. 設置 Access-Control-Allow-Origin Header
+   在後端伺服器的 response header 中設置 Access-Control-Allow-Origin 屬性為接受請求的網域，例如 Access-Control-Allow-Origin: https://example.com。
+
+2. JSONP（JSON with padding）
+   利用 script 標籤沒有跨域限制的特性，在前端使用 script 標籤傳遞 callback 函數名稱作為參數，伺服器返回 JSON 資料時將 JSON 資料包裝在 callback 函數中返回。
+
+```javascript
+<script>
+  function myCallback(response) {
+    console.log(response);
+  }
+  const script = document.createElement('script');
+  script.src = 'https://example.com/api?callback=myCallback';
+  document.body.appendChild(script);
+</script>
+```
+
+3. CORS Proxy (Proxy server)
+   透過第三方代理伺服器轉發跨域請求。
 
 ### Event bubble
 
