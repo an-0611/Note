@@ -1323,7 +1323,7 @@ call(fn, ...args): 用於調用異步函數，返回一個被調用函數返回�
 put(action): 向 Redux Store 發送一個 Action 對象。相當於 Redux 中的 store.dispatch(action)，發起一個指定的action到Redux store 來更新state。put 函數是一個非阻塞函數，不會阻塞當前的生成器函數執行。
 
 takeLatest(actionType, saga, ...args) 也是監聽指定的 action，但不同於 take，它每次只處理最後一次被監聽的 action，並且如果在執行 saga 的過程中有新的 action 被監聽到，那麼之前正在執行的 saga 將會被取消。
-
+簡單來說：每當收到一個新的 action 時，它將取消之前未完成的請求，然後執行最新的請求。
 
 import { take, call, put, takeLatest } from 'redux-saga/effects';
 import { fetchUserSuccess, fetchUserFailure } from './actions';
@@ -1473,3 +1473,13 @@ function createWave(wave, ms) {
 
 createWave(3, 100);
 ```
+
+Dynamic Programming（DP）和 Recursion 都是算法中常见的技术，但它们的思想和应用场景是不同的。
+
+Recursion 是一种函数调用自身的技术，用于将一个复杂的问题分解为简单的子问题来解决。递归的基本思想是将原问题分解成规模更小的子问题，然后解决子问题，最后通过组合子问题的结果来解决原问题。通常用于树形结构，如二叉树、图、链表等。
+
+Dynamic Programming 则是一种通过将问题分解为更小的子问题来解决问题的算法技术。DP 的基本思想是将问题分解成规模更小的子问题，并将子问题的结果保存起来以便后续使用。通常用于处理数组和矩阵等数据结构。
+
+相比于递归，DP 可以避免重复计算子问题，从而提高算法的效率。而且在一些问题中，DP 可能是唯一可行的解决方案，而递归可能会导致超时或堆栈溢出。但是，DP 需要更多的空间来存储中间结果，而递归的空间复杂度通常较低。
+
+总之，递归和 DP 是两种不同的技术，应根据问题的特点和要求来选择使用哪种算法。
