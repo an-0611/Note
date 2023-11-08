@@ -1,3 +1,20 @@
+### DOMcontentLoaded & window.onload
+
+##### DOMContentLoaded : 僅載入 HTML 和 inline css
+
+- 在 react 中類似於 componentDidMount
+- 在 vue2 中類似於 created, 但稍有不同 (此時 vue instance onload)
+- 在 vue3 中類似於 onMounted, 但稍有不同 (此時 vue instance onload)
+- 應用時機：DOM 準備完成後準備執行某些 JavaScript, 圖片和外部資源皆尚未載入
+
+⚠️ 如果使用 script defer || type="module", 則 script 將會在 DOMContentLoaded 之前執行．(同步且不互相依賴下)
+
+##### window.onload : 等待所有外部資源載入，JavaScript 和 CSS 皆完成
+
+- 應用時機：如果需要確保所有資源都已下載，再執行 JavaScript，那就使用 window.onload。
+
+##### 結論，DOMContentLoaded 通常會比 window.onload 先觸發，因為它等待的是 HTML 文件的解析完成，而不是整個頁面的資源下載完成。
+
 ### Hoist with var & let
 
 ```javascript
